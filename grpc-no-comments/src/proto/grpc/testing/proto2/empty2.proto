@@ -1,0 +1,10 @@
+
+// Copyright 2016 gRPC authors.
+
+syntax = "proto2";
+
+package grpc.testing.proto2;
+
+message EmptyWithExtensions {
+  extensions 100 to 999;
+}

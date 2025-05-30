@@ -1,0 +1,8 @@
+// Copyright 2016 gRPC authors.
+
+syntax = "proto3";
+
+package grpc_protoc_plugin.invocation_testing.split;
+
+message Request {}
+message Response {}

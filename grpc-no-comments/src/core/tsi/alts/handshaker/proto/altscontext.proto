@@ -1,0 +1,26 @@
+// Copyright 2018 gRPC authors.
+
+syntax = "proto3";
+
+import "transport_security_common.proto";
+
+package grpc.gcp;
+
+option java_package = "io.grpc.alts.internal";
+
+message AltsContext {
+
+  string application_protocol = 1;
+
+  string record_protocol = 2;
+
+  SecurityLevel security_level = 3;
+
+  string peer_service_account = 4;
+
+  string local_service_account = 5;
+
+  RpcProtocolVersions peer_rpc_versions = 6;
+
+  map<string, string> peer_attributes = 7;
+}

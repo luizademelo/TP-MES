@@ -1,0 +1,8 @@
+
+// Copyright 2023 Google LLC.  All rights reserved.
+
+syntax = "proto3";
+
+package pkg;
+
+message PublicImportMessage {}

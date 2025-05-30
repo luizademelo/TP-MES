@@ -1,0 +1,31 @@
+# Copyright 2017 gRPC authors.
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# distributed under the License is distributed on an "AS IS" BASIS,
+
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+require_relative './structs'
+
+module GRPC
+
+  class GoogleRpcStatusUtils
+    def self.extract_google_rpc_status(status)
+      fail ArgumentError, 'bad type' unless status.is_a? Struct::Status
+      grpc_status_details_bin_trailer = 'grpc-status-details-bin'
+      binstatus = status.metadata[grpc_status_details_bin_trailer]
+      return nil if binstatus.nil?
+
+      require_relative './grpc'
+      require 'google/rpc/status_pb'
+
+      Google::Rpc::Status.decode(binstatus)
+    end
+  end
+end

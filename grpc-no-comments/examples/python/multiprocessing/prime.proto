@@ -1,0 +1,20 @@
+// Copyright 2019 gRPC authors.
+
+syntax = "proto3";
+
+package prime;
+
+message PrimeCandidate {
+
+    int64 candidate = 1;
+}
+
+message Primality {
+
+    bool isPrime = 1;
+}
+
+service PrimeChecker {
+
+    rpc check (PrimeCandidate) returns (Primality) {}
+}

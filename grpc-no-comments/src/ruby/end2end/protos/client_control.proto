@@ -1,0 +1,24 @@
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+package client_control;
+
+service ClientController {
+  rpc DoEchoRpc (DoEchoRpcRequest) returns (Void) {}
+  rpc Shutdown(Void) returns (Void) {}
+}
+
+message DoEchoRpcRequest {
+  string request = 1;
+}
+
+message Void{}
+
+service ParentController {
+  rpc SetClientControllerPort(Port) returns (Void) {}
+}
+
+message Port {
+  int32 port = 1;
+}

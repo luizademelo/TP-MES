@@ -1,0 +1,20 @@
+// Copyright 2022 gRPC authors.
+
+syntax = "proto3";
+
+package xds.service.orca.v3;
+
+import "xds/data/orca/v3/orca_load_report.proto";
+
+import "google/protobuf/duration.proto";
+
+service OpenRcaService {
+  rpc StreamCoreMetrics(OrcaLoadReportRequest) returns (stream xds.data.orca.v3.OrcaLoadReport);
+}
+
+message OrcaLoadReportRequest {
+
+  google.protobuf.Duration report_interval = 1;
+
+  repeated string request_cost_names = 2;
+}

@@ -1,0 +1,12 @@
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+import "src/proto/grpc/testing/control.proto";
+
+package grpc.testing;
+
+service ReportQpsScenarioService {
+
+  rpc ReportScenario(ScenarioResult) returns (Void);
+}

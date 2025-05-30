@@ -1,0 +1,25 @@
+
+daysUntilStale: 90
+
+daysUntilClose: 7
+
+onlyLabels: []
+
+exemptLabels:
+  - "disposition/never stale"
+  - "kind/bug"
+
+exemptProjects: false
+
+exemptMilestones: false
+
+exemptAssignees: false
+
+staleLabel: "disposition/stale"
+
+markComment: >
+  This issue/PR has been automatically marked as stale because it has not had any update (including
+  commits, comments, labels, milestones, etc) for 30 days. It will be closed automatically if no
+  further update occurs in 7 day. Thank you for your contributions!
+
+limitPerRun: 30

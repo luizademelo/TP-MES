@@ -1,0 +1,92 @@
+
+// Copyright 2022 gRPC authors.
+
+syntax = "proto3";
+
+package xds_client_fuzzer;
+
+import "envoy/service/discovery/v3/discovery.proto";
+import "test/core/event_engine/fuzzing_event_engine/fuzzing_event_engine.proto";
+
+message Status {
+  int32 code = 1;
+  string message = 2;
+}
+
+message ResourceType {
+  message EmptyMessage {}
+  oneof resource_type {
+    EmptyMessage listener = 1;
+    EmptyMessage route_config = 2;
+    EmptyMessage cluster = 3;
+    EmptyMessage endpoint = 4;
+  }
+}
+
+message StartWatch {
+  ResourceType resource_type = 1;
+  string resource_name = 2;
+}
+
+message StopWatch {
+  ResourceType resource_type = 1;
+  string resource_name = 2;
+}
+
+message DumpCsdsData {}
+
+message ReportResourceCounts {}
+
+message ReportServerConnections {}
+
+message TriggerConnectionFailure {
+  string authority = 1;
+  Status status = 2;
+}
+
+message StreamId {
+  string authority = 1;
+
+  message EmptyMessage {}
+  oneof method {
+    EmptyMessage ads = 2;
+    EmptyMessage lrs = 3;
+  }
+}
+
+message ReadMessageFromClient {
+  StreamId stream_id = 1;
+  bool ok = 2;
+}
+
+message SendMessageToClient {
+  StreamId stream_id = 1;
+  envoy.service.discovery.v3.DiscoveryResponse response = 2;
+}
+
+message SendStatusToClient {
+  StreamId stream_id = 1;
+  Status status = 2;
+}
+
+message Action {
+  oneof action_type {
+
+    StartWatch start_watch = 1;
+    StopWatch stop_watch = 2;
+    DumpCsdsData dump_csds_data = 3;
+    ReportResourceCounts report_resource_counts = 8;
+    ReportServerConnections report_server_connections = 9;
+
+    TriggerConnectionFailure trigger_connection_failure = 4;
+    ReadMessageFromClient read_message_from_client = 5;
+    SendMessageToClient send_message_to_client = 6;
+    SendStatusToClient send_status_to_client = 7;
+  }
+}
+
+message Msg {
+  string bootstrap = 1;
+  repeated Action actions = 2;
+  fuzzing_event_engine.Actions fuzzing_event_engine_actions = 3;
+}

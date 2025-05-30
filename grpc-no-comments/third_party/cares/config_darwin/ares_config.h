@@ -1,0 +1,227 @@
+
+#undef AC_APPLE_UNIVERSAL_BUILD
+
+#undef ARES_BIG_ENDIAN
+
+#undef BUILDING_LIBCURL
+
+#undef CARES_EXPOSE_STATICS
+
+#undef CARES_SYMBOL_HIDING
+
+#undef CARES_SYMBOL_SCOPE_EXTERN
+
+#undef ETC_INET
+
+#define GETHOSTNAME_TYPE_ARG2 size_t
+
+#define GETNAMEINFO_QUAL_ARG1
+
+#define GETNAMEINFO_TYPE_ARG1 struct sockaddr *
+
+#define GETNAMEINFO_TYPE_ARG2 socklen_t
+
+#define GETNAMEINFO_TYPE_ARG46 socklen_t
+
+#define GETNAMEINFO_TYPE_ARG7 int
+
+#define GETSERVBYPORT_R_ARGS
+
+#define HAVE_AF_INET6
+
+#define HAVE_ARPA_INET_H
+
+#define HAVE_ARPA_NAMESER_COMPAT_H
+
+#define HAVE_ARPA_NAMESER_H
+
+#define HAVE_ASSERT_H
+
+#define HAVE_BOOL_T
+
+/* IMPORTANT: gRPC MANUAL EDIT HERE!
+ * defining HAVE_CLOCK_GETTIME_MONOTONIC breaks the MacOS build on gRPC CI */
+
+#define HAVE_CONNECT
+
+#define HAVE_DLFCN_H
+
+#define HAVE_ERRNO_H
+
+#define HAVE_FCNTL
+
+#define HAVE_FCNTL_H
+
+#define HAVE_FCNTL_O_NONBLOCK
+
+#define HAVE_FREEADDRINFO
+
+#define HAVE_GETADDRINFO
+
+#define HAVE_GETADDRINFO_THREADSAFE
+
+#define HAVE_GETENV
+
+#define HAVE_GETHOSTBYADDR
+
+#define HAVE_GETHOSTBYNAME
+
+#define HAVE_GETHOSTNAME
+
+#define HAVE_GETNAMEINFO
+
+#define HAVE_GETTIMEOFDAY
+
+#define HAVE_IF_INDEXTONAME
+
+#define HAVE_INET_NET_PTON
+
+#define HAVE_INET_NTOP
+
+#define HAVE_INET_PTON
+
+#define HAVE_INTTYPES_H
+
+#define HAVE_IOCTL
+
+#define HAVE_IOCTL_FIONBIO
+
+#define HAVE_IOCTL_SIOCGIFADDR
+
+#define HAVE_LIBRESOLV
+
+#define HAVE_LIMITS_H
+
+#define HAVE_LL
+
+#define HAVE_LONGLONG
+
+#define HAVE_MEMORY_H
+
+#define HAVE_NETDB_H
+
+#define HAVE_NETINET_IN_H
+
+#define HAVE_NETINET_TCP_H
+
+#define HAVE_NET_IF_H
+
+#define HAVE_PF_INET6
+
+#define HAVE_RECV
+
+#define HAVE_RECVFROM
+
+#define HAVE_SEND
+
+#define HAVE_SETSOCKOPT
+
+#define HAVE_SIGNAL_H
+
+#define HAVE_SIG_ATOMIC_T
+
+#define HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID
+
+#define HAVE_SOCKET
+
+#define HAVE_STDBOOL_H
+
+#define HAVE_STDINT_H
+
+#define HAVE_STDLIB_H
+
+#define HAVE_STRCASECMP
+
+#define HAVE_STRDUP
+
+#define HAVE_STRINGS_H
+
+#define HAVE_STRING_H
+
+#define HAVE_STRNCASECMP
+
+#define HAVE_STRUCT_ADDRINFO
+
+#define HAVE_STRUCT_IN6_ADDR
+
+#define HAVE_STRUCT_SOCKADDR_IN6
+
+#define HAVE_STRUCT_SOCKADDR_STORAGE
+
+#define HAVE_STRUCT_TIMEVAL
+
+#define HAVE_SYS_IOCTL_H
+
+#define HAVE_SYS_PARAM_H
+
+#define HAVE_SYS_SELECT_H
+
+#define HAVE_SYS_SOCKET_H
+
+#define HAVE_SYS_STAT_H
+
+#define HAVE_SYS_TIME_H
+
+#define HAVE_SYS_TYPES_H
+
+#define HAVE_SYS_UIO_H
+
+#define HAVE_TIME_H
+
+#define HAVE_UNISTD_H
+
+#define HAVE_WRITEV
+
+#define RECVFROM_QUAL_ARG5
+
+#define RECVFROM_TYPE_ARG1 int
+
+#define RECVFROM_TYPE_ARG2 void *
+
+#define RECVFROM_TYPE_ARG2_IS_VOID 0
+
+#define RECVFROM_TYPE_ARG3 size_t
+
+#define RECVFROM_TYPE_ARG4 int
+
+#define RECVFROM_TYPE_ARG5 struct sockaddr *
+
+#define RECVFROM_TYPE_ARG5_IS_VOID 0
+
+#define RECVFROM_TYPE_ARG6 socklen_t *
+
+#define RECVFROM_TYPE_ARG6_IS_VOID 0
+
+#define RECVFROM_TYPE_RETV ssize_t
+
+#define RECV_TYPE_ARG1 int
+
+#define RECV_TYPE_ARG2 void *
+
+#define RECV_TYPE_ARG3 size_t
+
+#define RECV_TYPE_ARG4 int
+
+#define RECV_TYPE_RETV ssize_t
+
+#define RETSIGTYPE
+
+#define SEND_QUAL_ARG2
+
+#define SEND_TYPE_ARG1 int
+
+#define SEND_TYPE_ARG2 void *
+
+#define SEND_TYPE_ARG3 size_t
+
+#define SEND_TYPE_ARG4 int
+
+#define SEND_TYPE_RETV ssize_t
+
+#define TIME_WITH_SYS_TIME
+
+#undef USE_BLOCKING_SOCKETS
+
+#undef WIN32_LEAN_AND_MEAN
+
+#undef in_addr_t

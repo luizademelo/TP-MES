@@ -1,0 +1,4 @@
+# Install buildifier v8.0.0
+RUN wget -O buildifier https:
+RUN chmod +x buildifier
+RUN mv buildifier /usr/local/bin

@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <Protobuf Include="messages.proto" GrpcServices="none" />
+    <Protobuf Include="serveronly.proto" GrpcServices="server" />
+    <Protobuf Include="clientonly.proto" GrpcServices="client" />
+    <Protobuf Include="clientandserver.proto" GrpcServices="both" />
+  </ItemGroup>
+
+</Project>

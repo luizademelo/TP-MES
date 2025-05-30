@@ -1,0 +1,251 @@
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+import "google/protobuf/timestamp.proto";
+import "src/proto/grpc/testing/payloads.proto";
+import "src/proto/grpc/testing/stats.proto";
+
+enum ClientType {
+
+  SYNC_CLIENT = 0;
+  ASYNC_CLIENT = 1;
+  OTHER_CLIENT = 2;
+  CALLBACK_CLIENT = 3;
+}
+
+enum ServerType {
+  SYNC_SERVER = 0;
+  ASYNC_SERVER = 1;
+  ASYNC_GENERIC_SERVER = 2;
+  OTHER_SERVER = 3;
+  CALLBACK_SERVER = 4;
+}
+
+enum RpcType {
+  UNARY = 0;
+  STREAMING = 1;
+  STREAMING_FROM_CLIENT = 2;
+  STREAMING_FROM_SERVER = 3;
+  STREAMING_BOTH_WAYS = 4;
+}
+
+enum Protocol {
+  HTTP2 = 0;
+  CHAOTIC_GOOD = 1;
+}
+
+message PoissonParams {
+
+  double offered_load = 1;
+}
+
+message ClosedLoopParams {}
+
+message LoadParams {
+  oneof load {
+    ClosedLoopParams closed_loop = 1;
+    PoissonParams poisson = 2;
+  }
+}
+
+message SecurityParams {
+  bool use_test_ca = 1;
+  string server_host_override = 2;
+  string cred_type = 3;
+}
+
+message ChannelArg {
+  string name = 1;
+  oneof value {
+    string str_value = 2;
+    int32 int_value = 3;
+  }
+}
+
+message ClientConfig {
+
+  repeated string server_targets = 1;
+  ClientType client_type = 2;
+  SecurityParams security_params = 3;
+
+  int32 outstanding_rpcs_per_channel = 4;
+
+  int32 client_channels = 5;
+
+  int32 async_client_threads = 7;
+  RpcType rpc_type = 8;
+
+  LoadParams load_params = 10;
+  PayloadConfig payload_config = 11;
+  HistogramParams histogram_params = 12;
+
+  bool distribute_load_across_threads = 23;
+
+  repeated int32 core_list = 13;
+  int32 core_limit = 14;
+
+  string other_client_api = 15;
+
+  repeated ChannelArg channel_args = 16;
+
+  int32 threads_per_cq = 17;
+
+  int32 messages_per_stream = 18;
+
+  bool use_coalesce_api = 19;
+
+  int32 median_latency_collection_interval_millis = 20;
+
+  int32 client_processes = 21;
+
+  Protocol protocol = 22;
+}
+
+message ClientStatus {
+  ClientStats stats = 1;
+}
+
+message Mark {
+
+  bool reset = 1;
+
+  string name = 2;
+}
+
+message ClientArgs {
+  oneof argtype {
+    ClientConfig setup = 1;
+    Mark mark = 2;
+  }
+}
+
+message ServerConfig {
+  ServerType server_type = 1;
+  SecurityParams security_params = 2;
+
+  int32 port = 4;
+
+  int32 async_server_threads = 7;
+
+  int32 core_limit = 8;
+
+  PayloadConfig payload_config = 9;
+
+  repeated int32 core_list = 10;
+
+  string other_server_api = 11;
+
+  int32 threads_per_cq = 12;
+
+  int32 resource_quota_size = 1001;
+  repeated ChannelArg channel_args = 1002;
+
+  int32 server_processes = 21;
+
+  Protocol protocol = 22;
+}
+
+message ServerArgs {
+  oneof argtype {
+    ServerConfig setup = 1;
+    Mark mark = 2;
+  }
+}
+
+message ServerStatus {
+  ServerStats stats = 1;
+
+  int32 port = 2;
+
+  int32 cores = 3;
+}
+
+message CoreRequest {}
+
+message CoreResponse {
+
+  int32 cores = 1;
+}
+
+message Void {}
+
+message Scenario {
+
+  string name = 1;
+
+  ClientConfig client_config = 2;
+
+  int32 num_clients = 3;
+
+  ServerConfig server_config = 4;
+
+  int32 num_servers = 5;
+
+  int32 warmup_seconds = 6;
+
+  int32 benchmark_seconds = 7;
+
+  int32 spawn_local_worker_count = 8;
+}
+
+message Scenarios {
+  repeated Scenario scenarios = 1;
+}
+
+message ScenarioResultSummary {
+
+  double qps = 1;
+
+  double qps_per_server_core = 2;
+
+  double server_system_time = 3;
+
+  double server_user_time = 4;
+
+  double client_system_time = 5;
+
+  double client_user_time = 6;
+
+  double latency_50 = 7;
+  double latency_90 = 8;
+  double latency_95 = 9;
+  double latency_99 = 10;
+  double latency_999 = 11;
+
+  double server_cpu_usage = 12;
+
+  double successful_requests_per_second = 13;
+  double failed_requests_per_second = 14;
+
+  double client_polls_per_request = 15;
+  double server_polls_per_request = 16;
+
+  double server_queries_per_cpu_sec = 17;
+  double client_queries_per_cpu_sec = 18;
+
+  google.protobuf.Timestamp start_time = 19;
+  google.protobuf.Timestamp end_time = 20;
+}
+
+message ScenarioResult {
+
+  Scenario scenario = 1;
+
+  HistogramData latencies = 2;
+
+  repeated ClientStats client_stats = 3;
+
+  repeated ServerStats server_stats = 4;
+
+  repeated int32 server_cores = 5;
+
+  ScenarioResultSummary summary = 6;
+
+  repeated bool client_success = 7;
+  repeated bool server_success = 8;
+
+  repeated RequestResultCount request_results = 9;
+}

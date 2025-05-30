@@ -1,0 +1,79 @@
+// Copyright 2021 gRPC authors.
+
+syntax = "proto3";
+
+package promise_fuzzer;
+
+message Seq {
+    Promise first = 1;
+    repeated PromiseFactory promise_factories = 2;
+}
+
+message Join {
+    repeated Promise promises = 1;
+}
+
+message Race {
+    repeated Promise promises = 1;
+}
+
+message Last {}
+
+message PromiseFactory {
+    oneof promise_factory_type {
+
+        Promise promise = 1;
+
+        Last last = 2;
+    }
+}
+
+message Never {}
+
+message ScheduleWaker {
+  bool owning = 1;
+  int32 waker = 2;
+}
+
+message Promise {
+    oneof promise_type {
+
+        Seq seq = 1;
+
+        Join join = 2;
+
+        Race race = 3;
+
+        Never never = 4;
+
+        int32 sleep_first_n = 5;
+
+        Cancel cancel_from_inside = 6;
+
+        ScheduleWaker wait_once_on_waker = 7;
+    }
+}
+
+message Cancel {}
+
+message Wakeup {}
+
+message Action {
+    oneof action_type {
+
+        Wakeup force_wakeup = 1;
+
+        Cancel cancel = 2;
+
+        Wakeup flush_wakeup = 3;
+
+        int32 awake_waker = 4;
+
+        int32 drop_waker = 5;
+    }
+}
+
+message Msg {
+    Promise promise = 1;
+    repeated Action actions = 2;
+}

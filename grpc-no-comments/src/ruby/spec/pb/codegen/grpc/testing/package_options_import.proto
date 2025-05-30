@@ -1,0 +1,9 @@
+// Copyright 2019 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+option ruby_package = "A::Other";
+
+message Thing { }

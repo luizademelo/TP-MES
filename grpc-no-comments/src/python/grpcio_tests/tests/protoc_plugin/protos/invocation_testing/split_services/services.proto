@@ -1,0 +1,11 @@
+// Copyright 2016 gRPC authors.
+
+syntax = "proto3";
+
+import "messages.proto";
+
+package grpc_protoc_plugin.invocation_testing.split;
+
+service TestService {
+  rpc Call(Request) returns (Response);
+}

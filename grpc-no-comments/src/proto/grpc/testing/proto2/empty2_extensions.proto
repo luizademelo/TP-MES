@@ -1,0 +1,15 @@
+// Copyright 2016 gRPC authors.
+
+syntax = "proto2";
+
+import "src/proto/grpc/testing/proto2/empty2.proto";
+
+package grpc.testing.proto2;
+
+extend grpc.testing.proto2.EmptyWithExtensions {
+  optional int64 Deadmau5 = 124;
+  optional float Madeon = 125;
+  optional string AboveAndBeyond = 126;
+  optional bool Tycho = 127;
+  optional fixed64 Pendulum = 128;
+}

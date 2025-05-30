@@ -1,0 +1,28 @@
+
+# Copyright 2022 The gRPC Authors
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# distributed under the License is distributed on an "AS IS" BASIS,
+
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+startup --host_jvm_args=-Dbazel.DigestFunction=SHA256
+
+build --remote_instance_name=projects/grpc-testing/instances/default_instance
+
+build --google_default_credentials
+
+build --remote_cache=grpcs://remotebuildexecution.googleapis.com
+
+build --bes_backend=grpcs://buildeventservice.googleapis.com
+build --bes_timeout=600s
+build --bes_results_url="https://source.cloud.google.com/results/invocations/"
+build --bes_instance_name=grpc-testing
+
+build --grpc_keepalive_time=10m

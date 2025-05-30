@@ -1,0 +1,7 @@
+
+// Copyright 2018 gRPC authors.
+
+#ifndef GRPCPP_IMPL_CODEGEN_METHOD_HANDLER_IMPL_H
+#define GRPCPP_IMPL_CODEGEN_METHOD_HANDLER_IMPL_H
+
+#endif

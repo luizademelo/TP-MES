@@ -1,0 +1,30 @@
+// Copyright 2019 The gRPC authors.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "HelloWorldProto";
+option objc_class_prefix = "HLW";
+
+package helloworld;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "subdir/hello_dep.proto";
+
+service Greeter {
+
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+message HelloRequest {
+  string name = 1;
+  google.protobuf.Timestamp request_initiation = 2;
+}
+
+message HelloReply {
+  string message = 1;
+  google.protobuf.Duration request_duration = 2;
+  HelloDep dep = 3;
+}

@@ -1,0 +1,54 @@
+
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+import "src/proto/grpc/testing/echo_messages.proto";
+import "src/proto/grpc/testing/simple_messages.proto";
+
+service EchoTestService {
+  rpc Echo(EchoRequest) returns (EchoResponse);
+  rpc Echo1(EchoRequest) returns (EchoResponse);
+  rpc Echo2(EchoRequest) returns (EchoResponse);
+  rpc CheckDeadlineUpperBound(SimpleRequest) returns (StringValue);
+  rpc CheckDeadlineSet(SimpleRequest) returns (StringValue);
+
+  rpc CheckClientInitialMetadata(SimpleRequest) returns (SimpleResponse);
+  rpc RequestStream(stream EchoRequest) returns (EchoResponse);
+  rpc ResponseStream(EchoRequest) returns (stream EchoResponse);
+  rpc BidiStream(stream EchoRequest) returns (stream EchoResponse);
+  rpc Unimplemented(EchoRequest) returns (EchoResponse);
+  rpc UnimplementedBidi(stream EchoRequest) returns (stream EchoResponse);
+}
+
+service EchoTest1Service {
+  rpc Echo(EchoRequest) returns (EchoResponse);
+  rpc Echo1(EchoRequest) returns (EchoResponse);
+  rpc Echo2(EchoRequest) returns (EchoResponse);
+
+  rpc CheckClientInitialMetadata(SimpleRequest) returns (SimpleResponse);
+  rpc RequestStream(stream EchoRequest) returns (EchoResponse);
+  rpc ResponseStream(EchoRequest) returns (stream EchoResponse);
+  rpc BidiStream(stream EchoRequest) returns (stream EchoResponse);
+  rpc Unimplemented(EchoRequest) returns (EchoResponse);
+}
+
+service EchoTest2Service {
+  rpc Echo(EchoRequest) returns (EchoResponse);
+  rpc Echo1(EchoRequest) returns (EchoResponse);
+  rpc Echo2(EchoRequest) returns (EchoResponse);
+
+  rpc CheckClientInitialMetadata(SimpleRequest) returns (SimpleResponse);
+  rpc RequestStream(stream EchoRequest) returns (EchoResponse);
+  rpc ResponseStream(EchoRequest) returns (stream EchoResponse);
+  rpc BidiStream(stream EchoRequest) returns (stream EchoResponse);
+  rpc Unimplemented(EchoRequest) returns (EchoResponse);
+}
+
+service UnimplementedEchoService {
+  rpc Unimplemented(EchoRequest) returns (EchoResponse);
+}
+
+service NoRpcService {}

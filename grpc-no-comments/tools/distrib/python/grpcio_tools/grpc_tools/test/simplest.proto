@@ -1,0 +1,9 @@
+// Copyright 2020 The gRPC authors.
+
+syntax = "proto3";
+
+package simplest;
+
+message SimplestMessage {
+  int64 i_definitely_dont_exist = 1;
+};

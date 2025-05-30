@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <Protobuf Include="**/*.proto"
+      OutputDir="$(TestOutDir)\myOutput"
+      GrpcOutputDir="$(TestOutDir)\myGrpcOutput" />
+  </ItemGroup>
+
+</Project>

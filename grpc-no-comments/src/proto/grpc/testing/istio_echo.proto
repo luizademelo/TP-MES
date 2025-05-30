@@ -1,0 +1,70 @@
+// Copyright 2022 gRPC authors.
+
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+package proto;
+
+service EchoTestService {
+  rpc Echo (EchoRequest) returns (EchoResponse);
+  rpc ForwardEcho (ForwardEchoRequest) returns (ForwardEchoResponse);
+}
+
+message EchoRequest {
+  string message = 1;
+}
+
+message EchoResponse {
+  string message = 1;
+}
+
+message Header {
+  string key = 1;
+  string value = 2;
+}
+
+message ForwardEchoRequest {
+  int32 count = 1;
+  int32 qps = 2;
+  int64 timeout_micros = 3;
+  string url = 4;
+  repeated Header headers = 5;
+  string message = 6;
+
+  string method = 9;
+
+  bool http2 = 7;
+
+  bool http3 = 15;
+
+  bool serverFirst = 8;
+
+  bool followRedirects = 14;
+
+  string cert = 10;
+  string key = 11;
+
+  string caCert = 12;
+
+  string certFile = 16;
+  string keyFile = 17;
+
+  string caCertFile = 18;
+
+  bool insecureSkipVerify = 19;
+
+  Alpn alpn = 13;
+
+  string serverName = 20;
+
+  google.protobuf.StringValue expectedResponse = 21;
+}
+
+message Alpn {
+  repeated string value = 1;
+}
+
+message ForwardEchoResponse {
+  repeated string output = 1;
+}

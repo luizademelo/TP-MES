@@ -1,0 +1,29 @@
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "src/objective-c/tests/RemoteTestClient/messages.proto";
+
+package grpc.testing;
+
+option objc_class_prefix = "RMT";
+
+service TestService {
+
+  rpc EmptyCall(google.protobuf.Empty) returns (google.protobuf.Empty);
+
+  rpc UnaryCall(SimpleRequest) returns (SimpleResponse);
+
+  rpc StreamingOutputCall(StreamingOutputCallRequest)
+      returns (stream StreamingOutputCallResponse);
+
+  rpc StreamingInputCall(stream StreamingInputCallRequest)
+      returns (StreamingInputCallResponse);
+
+  rpc FullDuplexCall(stream StreamingOutputCallRequest)
+      returns (stream StreamingOutputCallResponse);
+
+  rpc HalfDuplexCall(stream StreamingOutputCallRequest)
+      returns (stream StreamingOutputCallResponse);
+}

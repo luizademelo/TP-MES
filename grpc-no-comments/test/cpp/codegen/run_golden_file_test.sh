@@ -1,0 +1,18 @@
+#!/bin/bash
+# Copyright 2017 gRPC authors.
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# distributed under the License is distributed on an "AS IS" BASIS,
+
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+set -eux
+
+GENERATED_PB_H_DIR="${TEST_SRCDIR}/com_github_grpc_grpc/test/cpp/codegen/"
+test/cpp/codegen/golden_file_test --generated_file_path="$GENERATED_PB_H_DIR"

@@ -1,0 +1,13 @@
+
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+import "src/proto/grpc/testing/echo_messages.proto";
+
+package grpc.testing.duplicate;
+
+service EchoTestService {
+  rpc Echo(grpc.testing.EchoRequest) returns (grpc.testing.EchoResponse);
+  rpc ResponseStream(EchoRequest) returns (stream EchoResponse);
+}

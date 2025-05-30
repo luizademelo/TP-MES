@@ -1,0 +1,17 @@
+// Copyright 2020 gRPC authors.
+
+syntax = "proto3";
+
+package other_name;
+
+option ruby_package = "SameName2";
+
+service SameName2 {
+  rpc Health(Request) returns (Status);
+}
+
+message Status {
+  string msg = 1;
+}
+
+message Request {}

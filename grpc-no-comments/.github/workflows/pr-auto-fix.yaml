@@ -1,0 +1,100 @@
+name: PR AutoFix
+on: [push]
+permissions: {}
+jobs:
+  PRAutoFix:
+    permissions:
+      actions: write
+      contents: write
+      pull-requests: write
+
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Get current time
+        uses: srfrnk/current-time@5a4163ad035ccd9a407ec9e519c3b6ba1b633d1e
+        id: current-time
+        with:
+          format: YYYYWW
+      - name: Get current time
+        uses: srfrnk/current-time@5a4163ad035ccd9a407ec9e519c3b6ba1b633d1e
+        id: current-time-with-day
+        with:
+          format: YYYYWWd
+      - name: Cache bazel
+        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        env:
+          cache-name: bazel-cache
+        with:
+          path: ~/.cache/bazel
+
+          key: ${{ runner.os }}-${{ steps.current-time-with-day.outputs.formattedTime }}
+          restore-keys: |
+            ${{ runner.os }}-${{ steps.current-time.outputs.formattedTime }}
+            ${{ runner.os }}-
+
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@85880fa0301c86cca9da44039ee3bb12d3bedbfa
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Should I Stay Or Should I Go
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        id: check
+        with:
+          script: |
+            // If you'd like not to run this code on your commits, add your github user id here:
+            const NO_AUTOFIX_USERS = ["copybara-service[bot]"];
+            const { owner, repo } = context.repo;
+            console.log("Actor: " + context.actor);
+            if (NO_AUTOFIX_USERS.includes(context.actor)) {
+              console.log('Cancelling');
+              const run_id = "${{ github.run_id }}";
+              await github.rest.actions.cancelWorkflowRun({ owner, repo, run_id });
+              return 'go';
+            } else {
+              return 'stay';
+            }
+      - name: Wait for cancellation
+        run: sleep 60
+        if: steps.check.outputs.result == 'go'
+      - name: Should build?
+        run: test "${{ steps.check.outputs.result }}" = "stay"
+
+      - name: Install Python Interpreter
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: 3.8
+      - name: Install Python Packages
+        run: |
+          pip install pyyaml mako virtualenv absl-py
+          sudo apt-get update
+          sudo apt-get install python3-dev
+      - name: Check out repository code
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+        with:
+          submodules: True
+      - name: Get the upstream code
+        run: |
+          cd ${{ github.workspace }}
+          git remote add upstream https://github.com/grpc/grpc
+          git fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 upstream master
+
+      - name: clang-tidy fixes
+        run: ANDROID_NDK_HOME= ${{ github.workspace }}/tools/distrib/clang_tidy_code.sh --fix --only-changed || true
+      - name: Run sanitize
+        run: ANDROID_NDK_HOME= ${{ github.workspace }}/tools/distrib/sanitize.sh
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e
+        with:
+          delete-branch: true
+          branch-suffix: short-commit-hash
+          commit-message: "Automated change: Fix sanity tests"
+          title: Automated fix for ${{ github.ref }}
+          body: |
+            PanCakes to the rescue!
+
+            We noticed that our 'sanity' test was going to fail, but we think we can fix that automatically, so we put together this PR to do just that!
+
+            If you'd like to opt-out of these PR's, add yourself to NO_AUTOFIX_USERS in .github/workflows/pr-auto-fix.yaml

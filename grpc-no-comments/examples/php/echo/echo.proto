@@ -1,0 +1,62 @@
+// Copyright 2019 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.gateway.testing;
+
+message Empty {}
+
+message EchoRequest {
+  string message = 1;
+}
+
+message EchoResponse {
+  string message = 1;
+  int32 message_count = 2;
+}
+
+message ServerStreamingEchoRequest {
+
+  string message = 1;
+
+  int32 message_count = 2;
+
+  int32 message_interval = 3;
+}
+
+message ServerStreamingEchoResponse {
+
+  string message = 1;
+}
+
+message ClientStreamingEchoRequest {
+
+  string message = 1;
+}
+
+message ClientStreamingEchoResponse {
+
+  int32 message_count = 1;
+}
+
+service EchoService {
+
+  rpc Echo(EchoRequest) returns (EchoResponse);
+
+  rpc EchoAbort(EchoRequest) returns (EchoResponse) {}
+
+  rpc NoOp(Empty) returns (Empty);
+
+  rpc ServerStreamingEcho(ServerStreamingEchoRequest)
+      returns (stream ServerStreamingEchoResponse);
+
+  rpc ServerStreamingEchoAbort(ServerStreamingEchoRequest)
+      returns (stream ServerStreamingEchoResponse) {}
+
+  rpc ClientStreamingEcho(stream ClientStreamingEchoRequest)
+      returns (ClientStreamingEchoResponse);
+
+  rpc FullDuplexEcho(stream EchoRequest) returns (stream EchoResponse);
+
+  rpc HalfDuplexEcho(stream EchoRequest) returns (stream EchoResponse);
+}

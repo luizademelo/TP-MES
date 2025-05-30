@@ -1,0 +1,25 @@
+// Copyright 2021 gRPC authors.
+
+syntax = "proto3";
+
+package hpack_parser_fuzzer;
+
+import "test/core/test_util/fuzz_config_vars.proto";
+
+message Empty {}
+
+message Frame {
+  bool end_of_headers = 1;
+  bool end_of_stream = 2;
+  bool priority = 3;
+  int32 stop_buffering_after_segments = 4;
+  int32 max_metadata_length = 5;
+  repeated bytes parse = 6;
+  int32 absolute_max_metadata_length = 7;
+}
+
+message Msg {
+  repeated Frame frames = 2;
+  grpc.testing.FuzzConfigVars config_vars = 3;
+  repeated uint64 random_numbers = 4;
+}

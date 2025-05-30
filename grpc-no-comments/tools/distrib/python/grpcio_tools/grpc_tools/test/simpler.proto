@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// Copyright 2020 The gRPC authors.
+
+package simpler;
+
+import "simplest.proto";
+
+message SimplerMessage {
+  int64 do_i_even_exist = 1;
+  simplest.SimplestMessage simplest_message = 2;
+};

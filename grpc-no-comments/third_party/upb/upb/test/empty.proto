@@ -1,0 +1,6 @@
+
+// Copyright 2023 Google LLC.  All rights reserved.
+
+syntax = "proto2";
+
+package upb_test;

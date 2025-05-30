@@ -1,0 +1,8 @@
+
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+message Empty {}

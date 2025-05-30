@@ -1,0 +1,17 @@
+// Copyright 2021 The gRPC authors.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.subpackage";
+option java_outer_classname = "SubpackageProto";
+option objc_class_prefix = "SP";
+
+package subpackage;
+
+import "proto/my.proto";
+
+message Subpackaged {
+  string name = 1;
+  somewhere_else.MyMessage msg = 2;
+}

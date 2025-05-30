@@ -1,0 +1,14 @@
+// Copyright 2020 The gRPC authors.
+
+syntax = "proto3";
+
+package test.complicated;
+
+import "simplest.proto";
+
+message ComplicatedMessage {
+  bool yes = 1;
+  bool no = 2;
+  bool why = 3;
+  simplest.SimplestMessage simplest_message = 4;
+};

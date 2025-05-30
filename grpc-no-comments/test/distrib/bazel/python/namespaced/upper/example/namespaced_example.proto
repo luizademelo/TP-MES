@@ -1,0 +1,23 @@
+// Copyright 2020 The gRPC authors.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.namespaced";
+option java_outer_classname = "NamespacedExampleProtos";
+option objc_class_prefix = "NEP";
+
+package upper.example;
+
+// TODO: dependencies are still broken
+
+message NamespacedExample {
+  string value = 1;
+
+  // TODO: dependencies are still broken
+
+}
+
+service NamespacedService {
+  rpc SayHello (NamespacedExample) returns (NamespacedExample) {}
+}

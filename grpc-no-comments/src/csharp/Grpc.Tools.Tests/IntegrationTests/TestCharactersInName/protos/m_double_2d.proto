@@ -1,0 +1,15 @@
+// Copyright 2023 The gRPC Authors
+
+syntax = "proto3";
+
+package grpc_tools_tests.integration_tests.test_characters_in_name_numbers;
+
+message MDouble2D
+{
+  double x = 1;
+  double y = 2;
+}
+
+service MyService {
+  rpc MyFunction (MDouble2D) returns (MDouble2D) {}
+}

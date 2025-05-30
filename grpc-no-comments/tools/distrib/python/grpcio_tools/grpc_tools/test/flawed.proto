@@ -1,0 +1,11 @@
+// Copyright 2020 The gRPC authors.
+
+syntax = "proto3";
+
+message Broken {
+  int32 no_field_number;
+};
+
+message Broken2 {
+  int32 no_field_number;
+};

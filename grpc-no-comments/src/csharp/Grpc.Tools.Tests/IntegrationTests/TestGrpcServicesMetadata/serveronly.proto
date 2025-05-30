@@ -1,0 +1,13 @@
+// Copyright 2023 The gRPC Authors
+
+syntax = "proto3";
+
+package grpc_tools_tests.integration_tests.test_grpc_services;
+
+import "messages.proto";
+
+service ServerOnly {
+
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SayHelloSlowly (HelloRequest) returns (HelloReply) {}
+}

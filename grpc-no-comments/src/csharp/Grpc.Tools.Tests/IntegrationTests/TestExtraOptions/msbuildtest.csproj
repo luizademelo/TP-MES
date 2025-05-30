@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <Protobuf Include="file.proto"
+      AdditionalProtocArguments="--plugin=protoc-gen-myplugin=D:\myplugin.exe;--myplugin_out=."
+      OutputOptions="--outOpt1=foo;--outOpt2=bar"
+      GrpcOutputOptions="--grpcOpt1=one;--grpcOpt2=two;--grpcOpt3=three"
+    />
+  </ItemGroup>
+
+</Project>

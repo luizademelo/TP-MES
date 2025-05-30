@@ -1,0 +1,11 @@
+// Copyright 2018 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing.package_with_underscore.data;
+
+message Request {
+}
+
+message Response {
+}

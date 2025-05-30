@@ -1,0 +1,6 @@
+
+<Project>
+
+  <Import Project="$(GrpcToolsBuildDir)\_grpc\_Grpc.Tools.targets"/>
+  <Import Project="$(GrpcToolsBuildDir)\_protobuf\Google.Protobuf.Tools.targets"/>
+</Project>

@@ -1,0 +1,8 @@
+// Copyright 2024 gRPC authors.
+
+#ifndef GRPC_SRC_CORE_CLIENT_CHANNEL_CLIENT_CHANNEL_ARGS_H
+#define GRPC_SRC_CORE_CLIENT_CHANNEL_CLIENT_CHANNEL_ARGS_H
+
+#define GRPC_ARG_SERVER_URI "grpc.server_uri"
+
+#endif

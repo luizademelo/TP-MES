@@ -1,0 +1,20 @@
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+import "tests/protoc_plugin/protos/payload/test_payload.proto";
+
+package grpc_protoc_plugin;
+
+message SimpleResponse {
+  Payload payload = 1;
+}
+
+message StreamingInputCallResponse {
+
+  int32 aggregated_payload_size = 1;
+}
+
+message StreamingOutputCallResponse {
+  Payload payload = 1;
+}

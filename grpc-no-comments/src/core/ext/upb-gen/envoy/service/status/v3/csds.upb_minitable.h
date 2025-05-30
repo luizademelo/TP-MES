@@ -1,0 +1,32 @@
+
+#ifndef ENVOY_SERVICE_STATUS_V3_CSDS_PROTO_UPB_H__UPB_MINITABLE_H_
+#define ENVOY_SERVICE_STATUS_V3_CSDS_PROTO_UPB_H__UPB_MINITABLE_H_
+
+#include "upb/generated_code_support.h"
+
+#include "upb/port/def.inc"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+extern const upb_MiniTable envoy__service__status__v3__ClientStatusRequest_msg_init;
+extern const upb_MiniTable* envoy__service__status__v3__ClientStatusRequest_msg_init_ptr;
+extern const upb_MiniTable envoy__service__status__v3__PerXdsConfig_msg_init;
+extern const upb_MiniTable* envoy__service__status__v3__PerXdsConfig_msg_init_ptr;
+extern const upb_MiniTable envoy__service__status__v3__ClientConfig_msg_init;
+extern const upb_MiniTable* envoy__service__status__v3__ClientConfig_msg_init_ptr;
+extern const upb_MiniTable envoy__service__status__v3__ClientConfig__GenericXdsConfig_msg_init;
+extern const upb_MiniTable* envoy__service__status__v3__ClientConfig__GenericXdsConfig_msg_init_ptr;
+extern const upb_MiniTable envoy__service__status__v3__ClientStatusResponse_msg_init;
+extern const upb_MiniTable* envoy__service__status__v3__ClientStatusResponse_msg_init_ptr;
+
+extern const upb_MiniTableFile envoy_service_status_v3_csds_proto_upb_file_layout;
+
+#ifdef __cplusplus
+}
+#endif
+
+#include "upb/port/undef.inc"
+
+#endif

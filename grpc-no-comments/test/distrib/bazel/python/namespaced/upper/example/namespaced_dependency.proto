@@ -1,0 +1,14 @@
+// Copyright 2020 The gRPC authors.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.namespaced";
+option java_outer_classname = "NamespacedDependencyProtos";
+option objc_class_prefix = "NEP";
+
+package upper.example;
+
+message NamespacedDependency {
+  int32 value = 1;
+}

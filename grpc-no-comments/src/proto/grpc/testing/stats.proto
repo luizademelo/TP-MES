@@ -1,0 +1,52 @@
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+message ServerStats {
+
+  double time_elapsed = 1;
+
+  double time_user = 2;
+
+  double time_system = 3;
+
+  uint64 total_cpu_time = 4;
+
+  uint64 idle_cpu_time = 5;
+
+  uint64 cq_poll_count = 6;
+}
+
+message HistogramParams {
+  double resolution = 1;
+  double max_possible = 2;
+}
+
+message HistogramData {
+  repeated uint32 bucket = 1;
+  double min_seen = 2;
+  double max_seen = 3;
+  double sum = 4;
+  double sum_of_squares = 5;
+  double count = 6;
+}
+
+message RequestResultCount {
+  int32 status_code = 1;
+  int64 count = 2;
+}
+
+message ClientStats {
+
+  HistogramData latencies = 1;
+
+  double time_elapsed = 2;
+  double time_user = 3;
+  double time_system = 4;
+
+  repeated RequestResultCount request_results = 5;
+
+  uint64 cq_poll_count = 6;
+}

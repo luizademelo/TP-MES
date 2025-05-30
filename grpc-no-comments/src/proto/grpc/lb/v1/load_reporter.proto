@@ -1,0 +1,116 @@
+// Copyright 2018 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.lb.v1;
+
+import "google/protobuf/duration.proto";
+
+service LoadReporter {
+
+  rpc ReportLoad(stream LoadReportRequest)
+    returns (stream LoadReportResponse) {
+  };
+}
+
+message LoadReportRequest {
+
+  InitialLoadReportRequest initial_request = 1;
+}
+
+message InitialLoadReportRequest {
+
+  string load_balanced_hostname = 1;
+
+  bytes load_key = 2;
+
+  google.protobuf.Duration load_report_interval = 3;
+}
+
+message LoadReportResponse {
+
+  InitialLoadReportResponse initial_response = 1;
+
+  LoadBalancingFeedback load_balancing_feedback = 2;
+
+  repeated Load load = 3;
+}
+
+message InitialLoadReportResponse {
+
+  string load_balancer_id = 1;
+
+  enum ImplementationIdentifier {
+    IMPL_UNSPECIFIED = 0;
+    CPP = 1;
+    JAVA = 2;
+    GO = 3;
+  }
+
+  ImplementationIdentifier implementation_id = 2;
+
+  int64 server_version = 3;
+}
+
+message LoadBalancingFeedback {
+
+  float server_utilization = 1;
+
+  float calls_per_second = 2;
+
+  float errors_per_second = 3;
+}
+
+message Load {
+
+  string load_balance_tag = 1;
+
+  string user_id = 3;
+
+  bytes client_ip_address = 15;
+
+  int64 num_calls_started = 4;
+
+  oneof in_progress_report {
+
+    int64 num_calls_in_progress = 5;
+  }
+
+  int64 num_calls_finished_without_error = 6;
+  int64 num_calls_finished_with_error = 7;
+
+  int64 num_calls_finished_with_server_error = 16;
+
+  int64 total_bytes_sent = 8;
+  int64 total_bytes_received = 9;
+  google.protobuf.Duration total_latency = 10;
+
+  repeated CallMetricData metric_data = 11;
+
+  oneof orphaned_load {
+
+    bytes load_key = 12 [deprecated=true];
+
+    bool load_key_unknown = 13;
+
+    OrphanedLoadIdentifier orphaned_load_identifier = 14;
+  }
+
+  reserved 2;
+}
+
+message CallMetricData {
+
+  string metric_name = 1;
+
+  int64 num_calls_finished_with_metric = 2;
+
+  double total_metric_value = 3;
+}
+
+message OrphanedLoadIdentifier {
+
+  bytes load_key = 1;
+
+  string load_balancer_id = 2;
+}

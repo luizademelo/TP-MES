@@ -1,0 +1,18 @@
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+import "src/proto/grpc/testing/control.proto";
+
+package grpc.testing;
+
+service WorkerService {
+
+  rpc RunServer(stream ServerArgs) returns (stream ServerStatus);
+
+  rpc RunClient(stream ClientArgs) returns (stream ClientStatus);
+
+  rpc CoreCount(CoreRequest) returns (CoreResponse);
+
+  rpc QuitWorker(Void) returns (Void);
+}

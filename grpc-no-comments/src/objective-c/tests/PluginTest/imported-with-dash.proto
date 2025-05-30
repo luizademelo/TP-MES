@@ -1,0 +1,11 @@
+// Copyright 2017 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+option objc_class_prefix = "RMT";
+
+message TestMessageImported {
+  int32 phony = 1;
+}

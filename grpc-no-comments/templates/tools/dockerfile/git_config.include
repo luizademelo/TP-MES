@@ -1,0 +1,2 @@
+# TODO: simplify the list of third_party modules list
+# NOTE: git>=2.46 allows leading paths like third_party

@@ -1,0 +1,20 @@
+// Copyright 2022 The gRPC Authors
+
+syntax = "proto3";
+
+package grpc_tools_tests.integration_tests.test_multiple_protos.another;
+
+service Greeter {
+
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SayHelloSlowly (HelloRequest) returns (HelloReply) {}
+}
+
+message HelloRequest {
+  string name = 1;
+  int32 delay = 2;
+}
+
+message HelloReply {
+  string message = 1;
+}

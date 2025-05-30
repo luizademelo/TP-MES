@@ -1,0 +1,22 @@
+// Copyright 2015 gRPC authors.
+
+syntax = "proto3";
+
+import "src/proto/grpc/testing/messages.proto";
+
+package grpc.testing;
+
+service BenchmarkService {
+
+  rpc UnaryCall(SimpleRequest) returns (SimpleResponse);
+
+  rpc StreamingCall(stream SimpleRequest) returns (stream SimpleResponse);
+
+  rpc StreamingFromClient(stream SimpleRequest) returns (SimpleResponse);
+
+  rpc StreamingFromServer(SimpleRequest) returns (stream SimpleResponse);
+
+  rpc StreamingBothWays(stream SimpleRequest) returns (stream SimpleResponse);
+
+  rpc GetBeforeSnapshot(SimpleRequest) returns (MemorySize);
+}

@@ -1,0 +1,22 @@
+
+// Copyright 2023 Google LLC.  All rights reserved.
+
+syntax = "proto2";
+
+package upb_test;
+
+message TestUtf8Proto2Bytes {
+  optional bytes data = 1;
+}
+
+message TestUtf8RepeatedProto2Bytes {
+  optional bytes data = 1;
+}
+
+message TestUtf8Proto2String {
+  optional string data = 1;
+}
+
+message TestUtf8RepeatedProto2String {
+  repeated string data = 1;
+}

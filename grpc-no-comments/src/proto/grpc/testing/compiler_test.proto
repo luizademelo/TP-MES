@@ -1,0 +1,30 @@
+// Copyright 2016 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+message Request {
+}
+message Response {
+}
+
+service ServiceA {
+
+  rpc MethodA1(Request) returns (Response);
+
+  rpc MethodA2(stream Request) returns (Response);
+
+  rpc MethodA3(Request) returns (stream Response);
+
+  rpc MethodA4(stream Request) returns (stream Response);
+
+}
+
+service ServiceB {
+
+  option deprecated = true;
+
+  rpc MethodB1(Request) returns (Response);
+
+}

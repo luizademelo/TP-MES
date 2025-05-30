@@ -1,0 +1,17 @@
+
+build:fuzztest-common --linkopt=-fsanitize=address
+build:fuzztest-common --copt=-fsanitize=address
+
+build:fuzztest-common --copt=-DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION
+
+build:fuzztest-common --copt=-UNDEBUG
+
+build:fuzztest-common --copt=-D_LIBCPP_ENABLE_ASSERTIONS=1
+
+build:fuzztest --config=fuzztest-common
+
+build:fuzztest --dynamic_mode=off
+
+build:fuzztest --copt=-DADDRESS_SANITIZER
+
+build:fuzztest --per_file_copt=+//,-fuzztest/.*,-googletest/.*,-googlemock/.*@-fsanitize-coverage=inline-8bit-counters,-fsanitize-coverage=trace-cmp

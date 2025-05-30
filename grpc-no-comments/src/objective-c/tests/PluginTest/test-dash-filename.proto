@@ -1,0 +1,16 @@
+// Copyright 2017 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+option objc_class_prefix = "RMT";
+
+import "imported-with-dash.proto";
+
+message TestMessage {
+  int32 phony = 1;
+}
+
+service PhonyService {
+}

@@ -1,0 +1,15 @@
+// Copyright 2020 gRPC authors.
+
+syntax = "proto3";
+
+package same_name;
+
+service SameName {
+  rpc Health(Request) returns (Status);
+}
+
+message Status {
+  string msg = 1;
+}
+
+message Request {}

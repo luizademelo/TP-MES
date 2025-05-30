@@ -1,0 +1,12 @@
+// Copyright 2022 gRPC authors.
+
+#ifndef GRPCPP_VERSION_INFO_H
+#define GRPCPP_VERSION_INFO_H
+
+#define GRPC_CPP_VERSION_MAJOR 1
+#define GRPC_CPP_VERSION_MINOR 74
+#define GRPC_CPP_VERSION_PATCH 0
+#define GRPC_CPP_VERSION_TAG "dev"
+#define GRPC_CPP_VERSION_STRING "1.74.0-dev"
+
+#endif

@@ -1,0 +1,76 @@
+
+# Copyright 2018 The gRPC Authors
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# distributed under the License is distributed on an "AS IS" BASIS,
+
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import %workspace%/tools/remote_build/include/rbe_remote_execution.bazelrc
+
+build --crosstool_top=//third_party/toolchains:rbe_linux_default_toolchain_suite
+build --extra_toolchains=//third_party/toolchains:rbe_linux_default_cc_toolchain
+
+build --extra_execution_platforms=//third_party/toolchains:rbe_linux_default_platform
+build --host_platform=//third_party/toolchains:rbe_linux_default_platform
+build --platforms=//third_party/toolchains:rbe_linux_default_platform
+
+build --test_tag_filters=-no_linux
+build --build_tag_filters=-no_linux
+
+import %workspace%/tools/remote_build/include/test_config_common.bazelrc
+
+build --jobs=100
+
+build:opt --test_tag_filters=-noopt,-no_linux
+build:dbg --test_tag_filters=-nodbg,-no_linux
+
+build:asan --copt=-gmlt
+
+build:asan --test_timeout=60,600,1800,3600
+build:asan --test_tag_filters=-no_linux,-noasan,-qps_json_driver
+
+build:msan --copt=-gmlt
+
+build:msan --test_timeout=60,900,1800,3600
+
+build:msan --test_tag_filters=-no_linux,-nomsan,-json_run_localhost
+build:msan --cxxopt=--stdlib=libc++
+build:msan --linkopt=--stdlib=libc++
+
+build:msan --action_env=LD_LIBRARY_PATH=/usr/local/libcxx-msan/lib
+
+build:msan --cxxopt='-std=c++17'
+build:msan --host_cxxopt='-std=c++17'
+
+build:msan --copt=-O1
+build:msan --cxxopt=-O1
+
+build:tsan --copt=-gmlt
+
+build:tsan --test_timeout=60,600,1800,3600
+build:tsan --test_tag_filters=-no_linux,-notsan,-qps_json_driver
+
+build:fuzztest --test_tag_filters=grpc-fuzztest
+
+build:ubsan --copt=-gmlt
+
+build:ubsan --test_timeout=60,600,1800,3600
+
+build:ubsan --copt=-fsanitize=memory
+build:ubsan --copt=-fsanitize-recover=memory
+build:ubsan --linkopt=-fsanitize=memory
+build:ubsan --cxxopt=--stdlib=libc++
+build:ubsan --action_env=MSAN_OPTIONS=halt_on_error=0
+build:ubsan --test_tag_filters=-no_linux,-noubsan
+
+build:ubsan --action_env=LD_LIBRARY_PATH=/usr/local/libcxx-msan/lib
+
+build:ubsan --cxxopt='-std=c++17'
+build:ubsan --host_cxxopt='-std=c++17'

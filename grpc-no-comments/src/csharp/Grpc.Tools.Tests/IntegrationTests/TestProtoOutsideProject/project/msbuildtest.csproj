@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+
+    <ParentDir>$(MSBuildThisFileDirectory)..\</ParentDir>
+    <ProtoApiRepoBaseDir>$(ParentDir)api\</ProtoApiRepoBaseDir>
+    <AutoGenOutputBaseDir>$(TestOutDir)\generated\</AutoGenOutputBaseDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+    <Protobuf Include = "$(ProtoApiRepoBaseDir)\**\*.proto"
+              Link = "ProtoApi\%(RecursiveDir)%(Filename)%(Extension)"
+              Access = "Public"
+              ProtoCompile = "True"
+              ProtoRoot = "$(ProtoApiRepoBaseDir)"
+              CompileOutputs = "true"
+              OutputDir = "$(AutoGenOutputBaseDir)"
+              GrpcOutputDir = "$(AutoGenOutputBaseDir)"
+              GrpcServices = "client" />
+  </ItemGroup>
+
+</Project>

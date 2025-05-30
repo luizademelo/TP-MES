@@ -1,0 +1,73 @@
+
+// Copyright 2015-2016 gRPC authors.
+
+syntax = "proto3";
+
+import "src/proto/grpc/testing/empty.proto";
+import "src/proto/grpc/testing/messages.proto";
+
+package grpc.testing;
+
+option java_package = "io.grpc.testing.integration";
+
+service TestService {
+
+  rpc EmptyCall(grpc.testing.Empty) returns (grpc.testing.Empty);
+
+  rpc UnaryCall(SimpleRequest) returns (SimpleResponse);
+
+  rpc CacheableUnaryCall(SimpleRequest) returns (SimpleResponse);
+
+  rpc StreamingOutputCall(StreamingOutputCallRequest)
+      returns (stream StreamingOutputCallResponse);
+
+  rpc StreamingInputCall(stream StreamingInputCallRequest)
+      returns (StreamingInputCallResponse);
+
+  rpc FullDuplexCall(stream StreamingOutputCallRequest)
+      returns (stream StreamingOutputCallResponse);
+
+  rpc HalfDuplexCall(stream StreamingOutputCallRequest)
+      returns (stream StreamingOutputCallResponse);
+
+  rpc UnimplementedCall(grpc.testing.Empty) returns (grpc.testing.Empty);
+}
+
+service UnimplementedService {
+
+  rpc UnimplementedCall(grpc.testing.Empty) returns (grpc.testing.Empty);
+}
+
+service ReconnectService {
+  rpc Start(grpc.testing.ReconnectParams) returns (grpc.testing.Empty);
+  rpc Stop(grpc.testing.Empty) returns (grpc.testing.ReconnectInfo);
+}
+
+service LoadBalancerStatsService {
+
+  rpc GetClientStats(LoadBalancerStatsRequest)
+      returns (LoadBalancerStatsResponse) {}
+
+  rpc GetClientAccumulatedStats(LoadBalancerAccumulatedStatsRequest)
+      returns (LoadBalancerAccumulatedStatsResponse) {}
+}
+
+service HookService {
+
+  rpc Hook(grpc.testing.Empty) returns (grpc.testing.Empty);
+
+  rpc SetReturnStatus(SetReturnStatusRequest) returns (grpc.testing.Empty);
+
+  rpc ClearReturnStatus(grpc.testing.Empty) returns (grpc.testing.Empty);
+}
+
+service XdsUpdateHealthService {
+  rpc SetServing(grpc.testing.Empty) returns (grpc.testing.Empty);
+  rpc SetNotServing(grpc.testing.Empty) returns (grpc.testing.Empty);
+  rpc SendHookRequest(HookRequest) returns (HookResponse);
+}
+
+service XdsUpdateClientConfigureService {
+
+  rpc Configure(ClientConfigureRequest) returns (ClientConfigureResponse);
+}

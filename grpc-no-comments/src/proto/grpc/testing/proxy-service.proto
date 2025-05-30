@@ -1,0 +1,18 @@
+// Copyright 2017 gRPC authors.
+
+syntax = "proto3";
+
+import "src/proto/grpc/testing/control.proto";
+import "src/proto/grpc/testing/stats.proto";
+
+package grpc.testing;
+
+message ProxyStat {
+  double latency = 1;
+}
+
+service ProxyClientService {
+  rpc GetConfig(Void) returns (ClientConfig);
+  rpc ReportTime(stream ProxyStat) returns (Void);
+  rpc ReportHist(stream HistogramData) returns (Void);
+}

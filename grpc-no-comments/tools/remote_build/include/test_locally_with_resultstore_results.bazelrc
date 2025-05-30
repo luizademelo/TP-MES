@@ -1,0 +1,6 @@
+
+import %workspace%/tools/remote_build/include/rbe_base_config.bazelrc
+
+build --remote_upload_local_results=false
+
+import %workspace%/tools/remote_build/include/test_config_common.bazelrc

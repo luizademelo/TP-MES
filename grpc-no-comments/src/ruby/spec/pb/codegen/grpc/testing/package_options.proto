@@ -1,0 +1,15 @@
+// Copyright 2018 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+option ruby_package = "Grpc.Testing.Package.Options";
+
+message TestRequest { }
+
+message TestResponse { }
+
+service TestService {
+  rpc GetTest(TestRequest) returns (TestResponse) { }
+}

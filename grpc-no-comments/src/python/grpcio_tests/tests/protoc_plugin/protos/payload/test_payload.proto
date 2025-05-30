@@ -1,0 +1,22 @@
+// Copyright 2016 gRPC authors.
+
+syntax = "proto3";
+
+package grpc_protoc_plugin;
+
+enum PayloadType {
+
+  COMPRESSABLE= 0;
+
+  UNCOMPRESSABLE = 1;
+
+  RANDOM = 2;
+}
+
+message Payload {
+  PayloadType payload_type = 1;
+  oneof payload_body {
+    string payload_compressable = 2;
+    bytes payload_uncompressable = 3;
+  }
+}

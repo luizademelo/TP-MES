@@ -1,0 +1,11 @@
+// Copyright 2020 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.foo;
+
+option ruby_package = "B::Other";
+
+message Foo {
+  message Bar { }
+}

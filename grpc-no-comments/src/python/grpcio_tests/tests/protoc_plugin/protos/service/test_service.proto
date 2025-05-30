@@ -1,0 +1,25 @@
+// Copyright 2016 gRPC authors.
+
+syntax = "proto3";
+
+import "tests/protoc_plugin/protos/requests/r/test_requests.proto";
+import "tests/protoc_plugin/protos/responses/test_responses.proto";
+
+package grpc_protoc_plugin;
+
+service TestService {
+
+  rpc UnaryCall(SimpleRequest) returns (SimpleResponse);
+
+  rpc StreamingOutputCall(StreamingOutputCallRequest)
+      returns (stream StreamingOutputCallResponse);
+
+  rpc StreamingInputCall(stream StreamingInputCallRequest)
+      returns (StreamingInputCallResponse);
+
+  rpc FullDuplexCall(stream StreamingOutputCallRequest)
+      returns (stream StreamingOutputCallResponse);
+
+  rpc HalfDuplexCall(stream StreamingOutputCallRequest)
+      returns (stream StreamingOutputCallResponse);
+}

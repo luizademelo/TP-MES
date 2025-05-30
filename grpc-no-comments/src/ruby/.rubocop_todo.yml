@@ -1,0 +1,577 @@
+
+Gemspec/RequiredRubyVersion:
+  Exclude:
+    - 'tools/grpc-tools.gemspec'
+
+Layout/ArgumentAlignment:
+  Exclude:
+    - 'qps/proxy-worker.rb'
+
+Layout/CaseIndentation:
+  Exclude:
+    - 'tools/platform_check.rb'
+
+Layout/CommentIndentation:
+  Exclude:
+    - 'qps/client.rb'
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Layout/EmptyLineAfterMagicComment:
+  Exclude:
+    - 'tools/grpc-tools.gemspec'
+
+Layout/EmptyLineBetweenDefs:
+  Exclude:
+    - 'pb/src/proto/grpc/testing/test_services_pb.rb'
+    - 'qps/client.rb'
+    - 'qps/histogram.rb'
+    - 'qps/proxy-worker.rb'
+    - 'qps/qps-common.rb'
+    - 'qps/server.rb'
+    - 'qps/worker.rb'
+
+Layout/EmptyLines:
+  Exclude:
+    - 'qps/qps-common.rb'
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Exclude:
+    - 'lib/grpc/generic/active_call.rb'
+
+Layout/EmptyLinesAroundClassBody:
+  Exclude:
+    - 'pb/grpc/testing/duplicate/echo_duplicate_services_pb.rb'
+    - 'pb/grpc/testing/metrics_services_pb.rb'
+    - 'pb/src/proto/grpc/testing/test_services_pb.rb'
+    - 'qps/src/proto/grpc/testing/benchmark_service_services_pb.rb'
+    - 'qps/src/proto/grpc/testing/proxy-service_services_pb.rb'
+    - 'qps/src/proto/grpc/testing/report_qps_scenario_service_services_pb.rb'
+    - 'qps/src/proto/grpc/testing/worker_service_services_pb.rb'
+
+Layout/ExtraSpacing:
+  Exclude:
+    - 'bin/math_client.rb'
+    - 'bin/math_server.rb'
+    - 'lib/grpc/generic/active_call.rb'
+    - 'lib/grpc/generic/bidi_call.rb'
+    - 'lib/grpc/generic/rpc_desc.rb'
+    - 'lib/grpc/generic/rpc_server.rb'
+    - 'lib/grpc/generic/service.rb'
+    - 'pb/grpc/health/checker.rb'
+    - 'spec/call_spec.rb'
+    - 'spec/channel_credentials_spec.rb'
+    - 'spec/client_server_spec.rb'
+    - 'spec/generic/active_call_spec.rb'
+    - 'spec/generic/client_stub_spec.rb'
+    - 'spec/generic/rpc_server_spec.rb'
+
+Layout/IndentationStyle:
+  Exclude:
+    - 'qps/client.rb'
+
+Layout/MultilineHashBraceLayout:
+  Exclude:
+    - 'spec/generic/active_call_spec.rb'
+
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - 'spec/generic/rpc_desc_spec.rb'
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  Exclude:
+    - 'spec/generic/client_stub_spec.rb'
+
+Layout/MultilineOperationIndentation:
+  Exclude:
+    - 'qps/proxy-worker.rb'
+
+Layout/SpaceAfterComma:
+  Exclude:
+    - 'qps/client.rb'
+    - 'qps/histogram.rb'
+
+Layout/SpaceAroundOperators:
+  Exclude:
+    - 'qps/client.rb'
+    - 'qps/histogram.rb'
+    - 'qps/proxy-worker.rb'
+    - 'qps/server.rb'
+    - 'spec/generic/active_call_spec.rb'
+
+Layout/SpaceBeforeBlockBraces:
+  Exclude:
+    - 'qps/histogram.rb'
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - 'tools/bin/grpc_tools_ruby_protoc'
+    - 'tools/bin/grpc_tools_ruby_protoc_plugin'
+
+Layout/SpaceInsideBlockBraces:
+  Exclude:
+    - 'stress/stress_client.rb'
+
+Layout/SpaceInsideHashLiteralBraces:
+  Exclude:
+    - 'qps/server.rb'
+
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Exclude:
+    - 'spec/generic/client_stub_spec.rb'
+    - 'tools/grpc-tools.gemspec'
+
+Layout/TrailingWhitespace:
+  Exclude:
+    - 'qps/worker.rb'
+
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - 'spec/call_credentials_spec.rb'
+    - 'spec/channel_credentials_spec.rb'
+    - 'spec/client_auth_spec.rb'
+    - 'spec/compression_options_spec.rb'
+    - 'spec/debug_message_spec.rb'
+    - 'spec/generic/active_call_spec.rb'
+    - 'spec/generic/client_stub_spec.rb'
+    - 'spec/generic/rpc_desc_spec.rb'
+    - 'spec/generic/rpc_server_pool_spec.rb'
+    - 'spec/generic/rpc_server_spec.rb'
+    - 'spec/generic/service_spec.rb'
+    - 'spec/pb/health/checker_spec.rb'
+    - 'spec/server_credentials_spec.rb'
+    - 'spec/user_agent_spec.rb'
+
+Lint/DuplicateRequire:
+  Exclude:
+    - 'spec/google_rpc_status_utils_spec.rb'
+
+Lint/IneffectiveAccessModifier:
+  Exclude:
+    - 'lib/grpc/generic/active_call.rb'
+
+Lint/InterpolationCheck:
+  Exclude:
+    - 'qps/qps-common.rb'
+
+Lint/MissingCopEnableDirective:
+  Exclude:
+    - 'end2end/call_credentials_returning_bad_metadata_doesnt_kill_background_thread_test.rb'
+    - 'end2end/call_credentials_timeout_test.rb'
+    - 'lib/grpc/generic/client_stub.rb'
+
+Lint/MissingSuper:
+  Exclude:
+    - 'bin/noproto_server.rb'
+    - 'end2end/channel_closing_client.rb'
+    - 'end2end/end2end_common.rb'
+    - 'end2end/graceful_sig_handling_client.rb'
+    - 'end2end/graceful_sig_stop_client.rb'
+    - 'end2end/killed_client_thread_test.rb'
+    - 'end2end/sig_handling_client.rb'
+    - 'lib/grpc/generic/service.rb'
+    - 'pb/grpc/health/checker.rb'
+    - 'qps/proxy-worker.rb'
+    - 'qps/worker.rb'
+    - 'stress/metrics_server.rb'
+    - 'stress/stress_client.rb'
+
+Lint/PercentStringArray:
+  Exclude:
+    - 'spec/client_server_spec.rb'
+    - 'spec/generic/active_call_spec.rb'
+    - 'spec/generic/client_stub_spec.rb'
+
+Lint/RedundantRequireStatement:
+  Exclude:
+    - 'end2end/end2end_common.rb'
+    - 'lib/grpc/generic/rpc_server.rb'
+    - 'qps/histogram.rb'
+    - 'stress/stress_client.rb'
+
+Lint/ScriptPermission:
+  Exclude:
+    - 'qps/client.rb'
+    - 'qps/histogram.rb'
+    - 'qps/qps-common.rb'
+    - 'qps/server.rb'
+
+Lint/UnreachableLoop:
+  Exclude:
+    - 'spec/channel_connection_spec.rb'
+
+Lint/UnusedBlockArgument:
+  Exclude:
+    - 'qps/client.rb'
+
+Lint/UnusedMethodArgument:
+  Exclude:
+    - 'end2end/server_marshalling_graceful_errors_test.rb'
+    - 'qps/client.rb'
+
+Lint/UselessAccessModifier:
+  Exclude:
+    - 'lib/grpc/logconfig.rb'
+
+Lint/UselessAssignment:
+  Exclude:
+    - 'qps/client.rb'
+
+Lint/UselessMethodDefinition:
+  Exclude:
+    - 'lib/grpc/generic/service.rb'
+
+Lint/Void:
+  Exclude:
+    - 'spec/generic/rpc_server_spec.rb'
+    - 'stress/metrics_server.rb'
+    - 'stress/stress_client.rb'
+
+Metrics/AbcSize:
+  Max: 61
+
+Metrics/BlockLength:
+  Max: 563
+
+Metrics/CyclomaticComplexity:
+  Max: 11
+
+Metrics/MethodLength:
+  Max: 54
+
+Metrics/ParameterLists:
+  Max: 7
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Naming/AccessorMethodName:
+  Exclude:
+    - 'qps/server.rb'
+    - 'stress/metrics_server.rb'
+    - 'stress/stress_client.rb'
+
+Naming/FileName:
+  Exclude:
+    - 'qps/src/proto/grpc/testing/proxy-service_pb.rb'
+    - 'qps/src/proto/grpc/testing/proxy-service_services_pb.rb'
+
+Naming/MethodParameterName:
+  Exclude:
+    - 'bin/noproto_client.rb'
+    - 'bin/noproto_server.rb'
+    - 'end2end/channel_closing_client.rb'
+    - 'end2end/multiple_killed_watching_threads_test.rb'
+    - 'lib/grpc/generic/service.rb'
+    - 'qps/proxy-worker.rb'
+    - 'qps/qps-common.rb'
+    - 'qps/worker.rb'
+    - 'spec/channel_spec.rb'
+    - 'spec/generic/active_call_spec.rb'
+    - 'spec/generic/client_stub_spec.rb'
+    - 'spec/generic/service_spec.rb'
+    - 'spec/server_spec.rb'
+    - 'spec/support/services.rb'
+
+Naming/PredicateName:
+  Exclude:
+    - 'spec/**/*'
+    - 'ext/grpc/extconf.rb'
+
+Naming/RescuedExceptionsVariableName:
+  Exclude:
+    - 'lib/grpc/errors.rb'
+
+Naming/VariableNumber:
+  Exclude:
+    - 'qps/src/proto/grpc/testing/control_pb.rb'
+
+Style/Alias:
+  Exclude:
+    - 'lib/grpc/generic/rpc_server.rb'
+    - 'lib/grpc/notifier.rb'
+
+Style/AndOr:
+  Exclude:
+    - 'ext/grpc/extconf.rb'
+
+Style/BlockDelimiters:
+  Exclude:
+    - 'qps/client.rb'
+    - 'qps/proxy-worker.rb'
+    - 'qps/server.rb'
+    - 'qps/worker.rb'
+
+Style/CaseLikeIf:
+  Exclude:
+    - 'lib/grpc/generic/bidi_call.rb'
+
+Style/ClassEqualityComparison:
+  Exclude:
+    - 'lib/grpc/generic/rpc_server.rb'
+
+Style/ClassMethods:
+  Exclude:
+    - 'tools/platform_check.rb'
+
+Style/ConditionalAssignment:
+  Exclude:
+    - 'ext/grpc/extconf.rb'
+    - 'lib/grpc/generic/rpc_server.rb'
+    - 'lib/grpc/generic/service.rb'
+
+Style/DefWithParentheses:
+  Exclude:
+    - 'ext/grpc/extconf.rb'
+
+Style/Dir:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Exclude:
+    - 'bin/noproto_server.rb'
+    - 'lib/grpc/logconfig.rb'
+    - 'spec/generic/rpc_desc_spec.rb'
+
+Style/ExpandPathArguments:
+  Exclude:
+    - 'lib/grpc.rb'
+
+Style/ExplicitBlockArgument:
+  Exclude:
+    - 'lib/grpc/generic/active_call.rb'
+    - 'lib/grpc/generic/interceptors.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Enabled: false
+
+Style/GlobalVars:
+  Exclude:
+    - 'ext/grpc/extconf.rb'
+
+Style/GuardClause:
+  Exclude:
+    - 'lib/grpc/generic/bidi_call.rb'
+    - 'lib/grpc/generic/rpc_server.rb'
+    - 'qps/client.rb'
+
+Style/HashSyntax:
+  Exclude:
+    - 'pb/src/proto/grpc/testing/empty_pb.rb'
+    - 'pb/src/proto/grpc/testing/messages_pb.rb'
+    - 'pb/src/proto/grpc/testing/test_pb.rb'
+    - 'qps/src/proto/grpc/core/stats_pb.rb'
+    - 'qps/src/proto/grpc/testing/benchmark_service_pb.rb'
+    - 'qps/src/proto/grpc/testing/control_pb.rb'
+    - 'qps/src/proto/grpc/testing/messages_pb.rb'
+    - 'qps/src/proto/grpc/testing/payloads_pb.rb'
+    - 'qps/src/proto/grpc/testing/report_qps_scenario_service_pb.rb'
+    - 'qps/src/proto/grpc/testing/stats_pb.rb'
+    - 'qps/src/proto/grpc/testing/worker_service_pb.rb'
+    - 'stress/metrics_server.rb'
+
+Style/HashTransformKeys:
+  Exclude:
+    - 'spec/client_server_spec.rb'
+
+Style/IfInsideElse:
+  Exclude:
+    - 'lib/grpc/generic/rpc_desc.rb'
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/InfiniteLoop:
+  Exclude:
+    - 'qps/proxy-worker.rb'
+
+Style/LineEndConcatenation:
+  Exclude:
+    - 'qps/proxy-worker.rb'
+
+Style/MethodCallWithoutArgsParentheses:
+  Exclude:
+    - 'ext/grpc/extconf.rb'
+    - 'qps/client.rb'
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/math_client.rb'
+    - 'end2end/end2end_common.rb'
+    - 'end2end/multiple_killed_watching_threads_test.rb'
+    - 'spec/call_spec.rb'
+    - 'spec/channel_connection_spec.rb'
+    - 'spec/client_server_spec.rb'
+    - 'spec/generic/active_call_spec.rb'
+    - 'spec/generic/client_stub_spec.rb'
+    - 'spec/google_rpc_status_utils_spec.rb'
+
+Style/MultilineIfModifier:
+  Exclude:
+    - 'lib/grpc/generic/bidi_call.rb'
+    - 'spec/spec_helper.rb'
+
+Style/MutableConstant:
+  Exclude:
+    - 'lib/grpc/version.rb'
+    - 'spec/compression_options_spec.rb'
+    - 'spec/generic/active_call_spec.rb'
+    - 'tools/version.rb'
+
+Style/NegatedWhile:
+  Exclude:
+    - 'qps/client.rb'
+
+Style/NumericPredicate:
+  Exclude:
+    - 'spec/**/*'
+    - 'end2end/end2end_common.rb'
+    - 'ext/grpc/extconf.rb'
+    - 'lib/grpc/core/time_consts.rb'
+    - 'lib/grpc/generic/rpc_server.rb'
+    - 'qps/client.rb'
+    - 'qps/qps-common.rb'
+
+Style/OptionalBooleanParameter:
+  Exclude:
+    - 'lib/grpc/generic/active_call.rb'
+    - 'lib/grpc/generic/bidi_call.rb'
+
+Style/ParallelAssignment:
+  Exclude:
+    - 'bin/math_server.rb'
+    - 'lib/grpc/generic/rpc_server.rb'
+    - 'spec/generic/client_stub_spec.rb'
+    - 'spec/generic/rpc_desc_spec.rb'
+    - 'spec/generic/rpc_server_pool_spec.rb'
+    - 'spec/generic/rpc_server_spec.rb'
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'end2end/grpc_class_init_test.rb'
+    - 'spec/client_server_spec.rb'
+    - 'spec/generic/active_call_spec.rb'
+    - 'spec/generic/client_stub_spec.rb'
+    - 'tools/grpc-tools.gemspec'
+
+Style/RaiseArgs:
+  Exclude:
+    - 'stress/metrics_server.rb'
+
+Style/RedundantAssignment:
+  Exclude:
+    - 'spec/generic/client_stub_spec.rb'
+
+Style/RedundantBegin:
+  Exclude:
+    - 'bin/math_server.rb'
+    - 'end2end/call_credentials_timeout_test.rb'
+    - 'end2end/channel_closing_client.rb'
+    - 'end2end/channel_closing_test.rb'
+
+Style/RedundantFileExtensionInRequire:
+  Exclude:
+    - 'stress/metrics_server.rb'
+    - 'tools/grpc-tools.gemspec'
+
+Style/RedundantInterpolation:
+  Exclude:
+    - 'pb/grpc/health/checker.rb'
+
+Style/RedundantParentheses:
+  Exclude:
+    - 'lib/grpc/generic/rpc_server.rb'
+    - 'qps/client.rb'
+    - 'qps/proxy-worker.rb'
+    - 'spec/generic/rpc_desc_spec.rb'
+
+Style/RedundantReturn:
+  Exclude:
+    - 'end2end/grpc_class_init_client.rb'
+
+Style/RescueStandardError:
+  Exclude:
+    - 'end2end/end2end_common.rb'
+    - 'lib/grpc/generic/active_call.rb'
+    - 'spec/google_rpc_status_utils_spec.rb'
+
+Style/SafeNavigation:
+  Exclude:
+    - 'lib/grpc/generic/bidi_call.rb'
+
+Style/SignalException:
+  Enabled: false
+
+Style/SlicingWithRange:
+  Exclude:
+    - 'lib/grpc/generic/rpc_server.rb'
+
+Style/SpecialGlobalVars:
+  Exclude:
+    - 'ext/grpc/extconf.rb'
+    - 'stress/stress_client.rb'
+
+Style/StderrPuts:
+  Enabled: false
+
+Style/StringConcatenation:
+  Exclude:
+    - 'ext/grpc/extconf.rb'
+    - 'qps/proxy-worker.rb'
+    - 'qps/server.rb'
+    - 'qps/worker.rb'
+    - 'spec/generic/active_call_spec.rb'
+    - 'spec/generic/client_stub_spec.rb'
+    - 'tools/bin/grpc_tools_ruby_protoc'
+    - 'tools/bin/grpc_tools_ruby_protoc_plugin'
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/StructInheritance:
+  Exclude:
+    - 'lib/grpc/generic/rpc_desc.rb'
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/SymbolProc:
+  Exclude:
+    - 'qps/client.rb'
+    - 'stress/stress_client.rb'
+
+Style/TrailingCommaInHashLiteral:
+  Exclude:
+    - 'bin/math_client.rb'
+
+Style/TrailingUnderscoreVariable:
+  Exclude:
+    - 'spec/channel_credentials_spec.rb'
+    - 'spec/server_credentials_spec.rb'
+
+Style/TrivialAccessors:
+  Exclude:
+    - 'qps/histogram.rb'
+
+Style/WhileUntilModifier:
+  Exclude:
+    - 'end2end/end2end_common.rb'
+    - 'qps/proxy-worker.rb'
+
+Style/ZeroLengthPredicate:
+  Exclude:
+    - 'ext/grpc/extconf.rb'
+    - 'lib/grpc/generic/rpc_server.rb'
+
+Layout/LineLength:
+  Max: 186

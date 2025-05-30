@@ -1,0 +1,9 @@
+
+// Copyright 2018 gRPC authors.
+
+syntax = "proto3";
+
+package grpc.testing;
+
+service EmptyService {
+}
