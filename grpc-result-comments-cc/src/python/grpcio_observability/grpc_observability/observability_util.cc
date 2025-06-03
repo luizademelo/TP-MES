@@ -1,0 +1,187 @@
+Here's the commented version of the code:
+
+```c++
+// Copyright 2023 gRPC authors.
+
+#include "observability_util.h"
+
+#include <chrono>
+#include <cstdlib>
+#include <map>
+#include <string>
+
+#include "absl/status/statusor.h"
+#include "absl/strings/string_view.h"
+#include "absl/types/optional.h"
+#include "client_call_tracer.h"
+#include "constants.h"
+#include "python_observability_context.h"
+#include "server_call_tracer.h"
+
+namespace grpc_observability {
+
+// Global queue for storing census data before export
+std::queue<CensusData>* g_census_data_buffer;
+// Mutex for thread-safe access to the census data buffer
+std::mutex g_census_data_buffer_mutex;
+// Condition variable for notifying when buffer reaches export threshold
+std::condition_variable g_census_data_buffer_cv;
+
+// Default threshold (70%) at which buffer data should be exported
+constexpr float kExportThreshold = 0.7;
+// Default maximum size of the export buffer
+constexpr int kMaxExportBufferSize = 10000;
+
+namespace {
+
+// Gets the export threshold from environment variable or returns default
+float GetExportThreadHold() {
+  const char* value = std::getenv("GRPC_PYTHON_CENSUS_EXPORT_THRESHOLD");
+  if (value != nullptr) {
+    return std::stof(value);
+  }
+  return kExportThreshold;
+}
+
+// Gets the maximum buffer size from environment variable or returns default
+int GetMaxExportBufferSize() {
+  const char* value = std::getenv("GRPC_PYTHON_CENSUS_MAX_EXPORT_BUFFER_SIZE");
+  if (value != nullptr) {
+    return std::stoi(value);
+  }
+  return kMaxExportBufferSize;
+}
+
+}
+
+// Records an integer metric with given parameters
+void RecordIntMetric(MetricsName name, int64_t value,
+                     const std::vector<Label>& labels, std::string identifier,
+                     const bool registered_method,
+                     const bool include_exchange_labels) {
+  Measurement measurement_data;
+  measurement_data.type = kMeasurementInt;
+  measurement_data.name = name;
+  measurement_data.registered_method = registered_method;
+  measurement_data.include_exchange_labels = include_exchange_labels;
+  measurement_data.value.value_int = value;
+
+  CensusData data = CensusData(measurement_data, labels, identifier);
+  AddCensusDataToBuffer(data);
+}
+
+// Records a double metric with given parameters
+void RecordDoubleMetric(MetricsName name, double value,
+                        const std::vector<Label>& labels,
+                        std::string identifier, const bool registered_method,
+                        const bool include_exchange_labels) {
+  Measurement measurement_data;
+  measurement_data.type = kMeasurementDouble;
+  measurement_data.name = name;
+  measurement_data.registered_method = registered_method;
+  measurement_data.include_exchange_labels = include_exchange_labels;
+  measurement_data.value.value_double = value;
+
+  CensusData data = CensusData(measurement_data, labels, identifier);
+  AddCensusDataToBuffer(data);
+}
+
+// Records span data for tracing
+void RecordSpan(const SpanCensusData& span_census_data) {
+  CensusData data = CensusData(span_census_data);
+  AddCensusDataToBuffer(data);
+}
+
+// Initializes the observability system by creating the census data buffer
+void NativeObservabilityInit() {
+  g_census_data_buffer = new std::queue<CensusData>;
+}
+
+// Creates and returns a new client call tracer instance
+void* CreateClientCallTracer(const char* method, const char* target,
+                             const char* trace_id, const char* parent_span_id,
+                             const char* identifier,
+                             const std::vector<Label> exchange_labels,
+                             bool add_csm_optional_labels,
+                             bool registered_method) {
+  void* client_call_tracer = new PythonOpenCensusCallTracer(
+      method, target, trace_id, parent_span_id, identifier, exchange_labels,
+      PythonCensusTracingEnabled(), add_csm_optional_labels, registered_method);
+  return client_call_tracer;
+}
+
+// Creates and returns a new server call tracer factory instance
+void* CreateServerCallTracerFactory(const std::vector<Label> exchange_labels,
+                                    const char* identifier) {
+  void* server_call_tracer_factory =
+      new PythonOpenCensusServerCallTracerFactory(exchange_labels, identifier);
+  return server_call_tracer_factory;
+}
+
+// Waits for the next batch of data with a timeout
+void AwaitNextBatchLocked(std::unique_lock<std::mutex>& lock, int timeout_ms) {
+  auto now = std::chrono::system_clock::now();
+  g_census_data_buffer_cv.wait_until(
+      lock, now + std::chrono::milliseconds(timeout_ms));
+}
+
+// Adds census data to the buffer in a thread-safe manner
+// Notifies waiting threads if buffer reaches export threshold
+void AddCensusDataToBuffer(const CensusData& data) {
+  std::unique_lock<std::mutex> lk(g_census_data_buffer_mutex);
+  if (g_census_data_buffer->size() >= GetMaxExportBufferSize()) {
+    VLOG(2) << "Reached maximum census data buffer size, discarding this "
+               "CensusData entry";
+  } else {
+    g_census_data_buffer->push(data);
+  }
+  if (g_census_data_buffer->size() >=
+      (GetExportThreadHold() * GetMaxExportBufferSize())) {
+    g_census_data_buffer_cv.notify_all();
+  }
+}
+
+// Converts gRPC status code to its string representation
+absl::string_view StatusCodeToString(grpc_status_code code) {
+  switch (code) {
+    case GRPC_STATUS_OK:
+      return "OK";
+    case GRPC_STATUS_CANCELLED:
+      return "CANCELLED";
+    case GRPC_STATUS_UNKNOWN:
+      return "UNKNOWN";
+    case GRPC_STATUS_INVALID_ARGUMENT:
+      return "INVALID_ARGUMENT";
+    case GRPC_STATUS_DEADLINE_EXCEED:
+      return "DEADLINE_EXCEEDED";
+    case GRPC_STATUS_NOT_FOUND:
+      return "NOT_FOUND";
+    case GRPC_STATUS_ALREADY_EXISTS:
+      return "ALREADY_EXISTS";
+    case GRPC_STATUS_PERMISSION_DENIED:
+      return "PERMISSION_DENIED";
+    case GRPC_STATUS_UNAUTHENTICATED:
+      return "UNAUTHENTICATED";
+    case GRPC_STATUS_RESOURCE_EXHAUSTED:
+      return "RESOURCE_EXHAUSTED";
+    case GRPC_STATUS_FAILED_PRECONDITION:
+      return "FAILED_PRECONDITION";
+    case GRPC_STATUS_ABORTED:
+      return "ABORTED";
+    case GRPC_STATUS_OUT_OF_RANGE:
+      return "OUT_OF_RANGE";
+    case GRPC_STATUS_UNIMPLEMENTED:
+      return "UNIMPLEMENTED";
+    case GRPC_STATUS_INTERNAL:
+      return "INTERNAL";
+    case GRPC_STATUS_UNAVAILABLE:
+      return "UNAVAILABLE";
+    case GRPC_STATUS_DATA_LOSS:
+      return "DATA_LOSS";
+    default:
+      return "UNKNOWN_STATUS";
+  }
+}
+
+}
+```

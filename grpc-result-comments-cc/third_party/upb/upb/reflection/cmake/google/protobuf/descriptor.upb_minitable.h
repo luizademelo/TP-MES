@@ -1,0 +1,141 @@
+Here's the commented version of the code:
+
+```c++
+// Header guard to prevent multiple inclusions of this file
+#ifndef GOOGLE_PROTOBUF_DESCRIPTOR_PROTO_UPB_H__UPB_MINITABLE_H_
+#define GOOGLE_PROTOBUF_DESCRIPTOR_PROTO_UPB_H__UPB_MINITABLE_H_
+
+// Include necessary headers for generated code support and platform definitions
+#include "upb/generated_code_support.h"
+#include "upb/port/def.inc"
+
+// C++ compatibility - ensures the code can be called from C++ programs
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// Declarations of mini-table structures for Protocol Buffer message types
+// Each message type has both a direct declaration and a pointer declaration
+// These are used for protocol buffer message serialization/deserialization
+extern const upb_MiniTable google__protobuf__FileDescriptorSet_msg_init;
+extern const upb_MiniTable* google__protobuf__FileDescriptorSet_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FileDescriptorProto_msg_init;
+extern const upb_MiniTable* google__protobuf__FileDescriptorProto_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__DescriptorProto_msg_init;
+extern const upb_MiniTable* google__protobuf__DescriptorProto_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__DescriptorProto__ExtensionRange_msg_init;
+extern const upb_MiniTable* google__protobuf__DescriptorProto__ExtensionRange_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__DescriptorProto__ReservedRange_msg_init;
+extern const upb_MiniTable* google__protobuf__DescriptorProto__ReservedRange_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__ExtensionRangeOptions_msg_init;
+extern const upb_MiniTable* google__protobuf__ExtensionRangeOptions_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__ExtensionRangeOptions__Declaration_msg_init;
+extern const upb_MiniTable* google__protobuf__ExtensionRangeOptions__Declaration_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FieldDescriptorProto_msg_init;
+extern const upb_MiniTable* google__protobuf__FieldDescriptorProto_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__OneofDescriptorProto_msg_init;
+extern const upb_MiniTable* google__protobuf__OneofDescriptorProto_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__EnumDescriptorProto_msg_init;
+extern const upb_MiniTable* google__protobuf__EnumDescriptorProto_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__EnumDescriptorProto__EnumReservedRange_msg_init;
+extern const upb_MiniTable* google__protobuf__EnumDescriptorProto__EnumReservedRange_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__EnumValueDescriptorProto_msg_init;
+extern const upb_MiniTable* google__protobuf__EnumValueDescriptorProto_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__ServiceDescriptorProto_msg_init;
+extern const upb_MiniTable* google__protobuf__ServiceDescriptorProto_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__MethodDescriptorProto_msg_init;
+extern const upb_MiniTable* google__protobuf__MethodDescriptorProto_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FileOptions_msg_init;
+extern const upb_MiniTable* google__protobuf__FileOptions_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__MessageOptions_msg_init;
+extern const upb_MiniTable* google__protobuf__MessageOptions_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FieldOptions_msg_init;
+extern const upb_MiniTable* google__protobuf__FieldOptions_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FieldOptions__EditionDefault_msg_init;
+extern const upb_MiniTable* google__protobuf__FieldOptions__EditionDefault_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FieldOptions__FeatureSupport_msg_init;
+extern const upb_MiniTable* google__protobuf__FieldOptions__FeatureSupport_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__OneofOptions_msg_init;
+extern const upb_MiniTable* google__protobuf__OneofOptions_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__EnumOptions_msg_init;
+extern const upb_MiniTable* google__protobuf__EnumOptions_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__EnumValueOptions_msg_init;
+extern const upb_MiniTable* google__protobuf__EnumValueOptions_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__ServiceOptions_msg_init;
+extern const upb_MiniTable* google__protobuf__ServiceOptions_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__MethodOptions_msg_init;
+extern const upb_MiniTable* google__protobuf__MethodOptions_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__UninterpretedOption_msg_init;
+extern const upb_MiniTable* google__protobuf__UninterpretedOption_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__UninterpretedOption__NamePart_msg_init;
+extern const upb_MiniTable* google__protobuf__UninterpretedOption__NamePart_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FeatureSet_msg_init;
+extern const upb_MiniTable* google__protobuf__FeatureSet_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FeatureSet__VisibilityFeature_msg_init;
+extern const upb_MiniTable* google__protobuf__FeatureSet__VisibilityFeature_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FeatureSetDefaults_msg_init;
+extern const upb_MiniTable* google__protobuf__FeatureSetDefaults_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__FeatureSetDefaults__FeatureSetEditionDefault_msg_init;
+extern const upb_MiniTable* google__protobuf__FeatureSetDefaults__FeatureSetEditionDefault_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__SourceCodeInfo_msg_init;
+extern const upb_MiniTable* google__protobuf__SourceCodeInfo_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__SourceCodeInfo__Location_msg_init;
+extern const upb_MiniTable* google__protobuf__SourceCodeInfo__Location_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__GeneratedCodeInfo_msg_init;
+extern const upb_MiniTable* google__protobuf__GeneratedCodeInfo_msg_init_ptr;
+extern const upb_MiniTable google__protobuf__GeneratedCodeInfo__Annotation_msg_init;
+extern const upb_MiniTable* google__protobuf__GeneratedCodeInfo__Annotation_msg_init_ptr;
+
+// Declarations of mini-table enums for Protocol Buffer enum types
+extern const upb_MiniTableEnum google__protobuf__Edition_enum_init;
+extern const upb_MiniTableEnum google__protobuf__ExtensionRangeOptions__VerificationState_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FeatureSet__EnforceNamingStyle_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FeatureSet__EnumType_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FeatureSet__FieldPresence_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FeatureSet__JsonFormat_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FeatureSet__MessageEncoding_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FeatureSet__RepeatedFieldEncoding_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FeatureSet__Utf8Validation_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FeatureSet__VisibilityFeature__DefaultSymbolVisibility_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FieldDescriptorProto__Label_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FieldDescriptorProto__Type_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FieldOptions__CType_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FieldOptions__JSType_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FieldOptions__OptionRetention_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FieldOptions__OptionTargetType_enum_init;
+extern const upb_MiniTableEnum google__protobuf__FileOptions__OptimizeMode_enum_init;
+extern const upb_MiniTableEnum google__protobuf__GeneratedCodeInfo__Annotation__Semantic_enum_init;
+extern const upb_MiniTableEnum google__protobuf__MethodOptions__IdempotencyLevel_enum_init;
+extern const upb_MiniTableEnum google__protobuf__SymbolVisibility_enum_init;
+
+// Declaration of the file layout structure for the descriptor.proto file
+extern const upb_MiniTableFile google_protobuf_descriptor_proto_upb_file_layout;
+
+// End C++ compatibility block
+#ifdef __cplusplus
+}
+#endif
+
+// Undefine any platform-specific macros that were defined earlier
+#include "upb/port/undef.inc"
+
+// End of header guard
+#endif  // GOOGLE_PROTOBUF_DESCRIPTOR_PROTO_UPB_H__UPB_MINITABLE_H_
+```
+
+The comments explain:
+1. The purpose of the header guard
+2. The included files and their roles
+3. The C++ compatibility block
+4. The purpose of the mini-table declarations for message types
+5. The purpose of the mini-table enum declarations
+6. The file layout structure declaration
+7. The closing of the C++ compatibility block
+8. The undefinition of platform macros
+9. The closing of the header guard
+
+The comments are structured to help future developers understand:
+- What each section of the file does
+- The relationship between the declarations
+- The overall purpose of the file in the Protocol Buffers system
+- The technical details of the implementation

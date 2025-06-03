@@ -1,0 +1,117 @@
+Here's the commented version of the code:
+
+```c++
+// Copyright 2020 gRPC authors.
+
+#include "src/core/credentials/transport/tls/tls_utils.h"
+
+#include <grpc/support/port_platform.h>
+#include <stddef.h>
+
+#include <algorithm>
+
+#include "absl/log/log.h"
+#include "absl/strings/ascii.h"
+#include "absl/strings/match.h"
+#include "absl/strings/str_cat.h"
+
+namespace grpc_core {
+
+// Verifies if a Subject Alternative Name (SAN) matches a given matcher string
+// according to wildcard rules. The function handles both exact matches and
+// wildcard patterns (e.g., *.example.com).
+// Returns true if the SAN matches the matcher, false otherwise.
+bool VerifySubjectAlternativeName(absl::string_view subject_alternative_name,
+                                  const std::string& matcher) {
+  // Early return if SAN is empty or starts with a dot (invalid)
+  if (subject_alternative_name.empty() ||
+      absl::StartsWith(subject_alternative_name, ".")) {
+    return false;
+  }
+  // Early return if matcher is empty or starts with a dot (invalid)
+  if (matcher.empty() || absl::StartsWith(matcher, ".")) {
+    return false;
+  }
+
+  // Normalize both SAN and matcher by ensuring they end with a dot
+  // and converting to lowercase for case-insensitive comparison
+  std::string normalized_san =
+      absl::EndsWith(subject_alternative_name, ".")
+          ? std::string(subject_alternative_name)
+          : absl::StrCat(subject_alternative_name, ".");
+  std::string normalized_matcher =
+      absl::EndsWith(matcher, ".") ? matcher : absl::StrCat(matcher, ".");
+  absl::AsciiStrToLower(&normalized_san);
+  absl::AsciiStrToLower(&normalized_matcher);
+
+  // If there's no wildcard, do exact match comparison
+  if (!absl::StrContains(normalized_san, "*")) {
+    return normalized_san == normalized_matcher;
+  }
+
+  // Wildcard validation rules:
+  // 1. Wildcard must be at the start and followed by a dot (e.g., *.example.com)
+  if (!absl::StartsWith(normalized_san, "*.")) {
+    return false;
+  }
+  // 2. Wildcard alone is invalid (e.g., "*.")
+  if (normalized_san == "*.") {
+    return false;
+  }
+  // 3. Only one wildcard is allowed
+  absl::string_view suffix = absl::string_view(normalized_san).substr(1);
+  if (absl::StrContains(suffix, "*")) {
+    return false;
+  }
+  // 4. Matcher must end with the suffix after the wildcard
+  if (!absl::EndsWith(normalized_matcher, suffix)) return false;
+  
+  // 5. The part before the suffix must not contain additional dots
+  // (wildcard only matches a single level)
+  size_t suffix_start_index = normalized_matcher.length() - suffix.length();
+  return suffix_start_index <= 0  ||
+         normalized_matcher.find_last_of('.', suffix_start_index - 1) ==
+             std::string::npos;
+}
+
+// Retrieves the value of a specific authentication property from the context.
+// If multiple values exist for the property, returns an empty string and logs a warning.
+// Returns the property value as a string_view if found, empty string otherwise.
+absl::string_view GetAuthPropertyValue(grpc_auth_context* context,
+                                       const char* property_name) {
+  grpc_auth_property_iterator it =
+      grpc_auth_context_find_properties_by_name(context, property_name);
+  const grpc_auth_property* prop = grpc_auth_property_iterator_next(&it);
+  if (prop == nullptr) {
+    VLOG(2) << "No value found for " << property_name << " property.";
+    return "";
+  }
+  if (grpc_auth_property_iterator_next(&it) != nullptr) {
+    VLOG(2) << "Multiple values found for " << property_name << " property.";
+    return "";
+  }
+  return absl::string_view(prop->value, prop->value_length);
+}
+
+// Retrieves all values of a specific authentication property from the context.
+// Returns a vector of string_views containing all values for the property.
+// If no values are found, returns an empty vector and logs a message.
+std::vector<absl::string_view> GetAuthPropertyArray(grpc_auth_context* context,
+                                                    const char* property_name) {
+  std::vector<absl::string_view> values;
+  grpc_auth_property_iterator it =
+      grpc_auth_context_find_properties_by_name(context, property_name);
+  const grpc_auth_property* prop = grpc_auth_property_iterator_next(&it);
+  // Collect all property values
+  while (prop != nullptr) {
+    values.emplace_back(prop->value, prop->value_length);
+    prop = grpc_auth_property_iterator_next(&it);
+  }
+  if (values.empty()) {
+    VLOG(2) << "No value found for " << property_name << " property.";
+  }
+  return values;
+}
+
+}  // namespace grpc_core
+```
