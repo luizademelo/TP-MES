@@ -88,22 +88,35 @@ class VisualizationGenerator:
             print("⚠️ Coluna 'Linguagem' não encontrada, pulando comparação por linguagem")
             return
             
-        fig, axes = plt.subplots(2, 3, figsize=(18, 12))
+        fig, axes = plt.subplots(2, 3, figsize=(20, 14))
         axes = axes.flatten()
         
         metrics = ['Score_Similaridade', 'Razão_Tamanho', 'Score_Legibilidade', 
                   'Score_BLEU', 'Score_ROUGE', 'Score_Geral']
         metric_names = ['Similaridade', 'Tamanho', 'Legibilidade', 'BLEU', 'ROUGE', 'Geral']
+        colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#DDA0DD']
         
-        for i, (metric, name) in enumerate(zip(metrics, metric_names)):
+        for i, (metric, name, color) in enumerate(zip(metrics, metric_names, colors)):
             if metric in self.df.columns:
-                self.df.boxplot(column=metric, by='Linguagem', ax=axes[i])
-                axes[i].set_title(f'{name} por Linguagem')
-                axes[i].set_xlabel('Linguagem')
-                axes[i].set_ylabel('Score')
+                # Usar seaborn para melhor visualização
+                import seaborn as sns
+                sns.boxplot(data=self.df, x='Linguagem', y=metric, ax=axes[i], palette='Set2')
+                axes[i].set_title(f'{name} por Linguagem', fontweight='bold', fontsize=12)
+                axes[i].set_xlabel('Linguagem de Programação', fontweight='bold')
+                axes[i].set_ylabel(f'Score {name}', fontweight='bold')
+                axes[i].grid(True, alpha=0.3)
+                
+                # Adiciona estatísticas médias
+                lang_means = self.df.groupby('Linguagem')[metric].mean()
+                for j, (lang, mean_val) in enumerate(lang_means.items()):
+                    axes[i].text(j, axes[i].get_ylim()[1] * 0.9, f'μ={mean_val:.3f}', 
+                                ha='center', va='center', fontweight='bold',
+                                bbox=dict(boxstyle="round,pad=0.3", facecolor=color, alpha=0.7))
         
-        plt.suptitle('Comparação de Métricas por Linguagem de Programação', fontsize=16, fontweight='bold')
+        plt.suptitle('Comparação de Métricas por Linguagem de Programação\n(μ = média por linguagem)', 
+                    fontsize=16, fontweight='bold', y=0.98)
         plt.tight_layout()
+        plt.subplots_adjust(top=0.92)
         plt.savefig(os.path.join(self.viz_dir, 'comparacao_linguagens.png'), dpi=300, bbox_inches='tight')
         plt.close()
         
@@ -200,7 +213,7 @@ class VisualizationGenerator:
         
         print("📊 Gráfico radar de performance criado")
     
-    def create_top_bottom_comparison(self):
+def create_top_bottom_comparison(self):
         """Cria comparação visual entre melhores e piores comentários"""
         if 'Score_Geral' not in self.df.columns:
             print("⚠️ Coluna 'Score_Geral' não encontrada")

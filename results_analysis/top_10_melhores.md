@@ -1,17 +1,17 @@
 # TOP 10 MELHORES COMENTÁRIOS
 
 ## #1 - Score: 1.0000
-**Arquivo**: src\core\lib\iomgr\fork_posix.cc (linha 40)
+**Arquivo**: include\grpc\impl\codegen\port_platform.h (linha 27)
 **Linguagem**: cc
 
 **Comentário Humano:**
 ```
-NOTE: FORKING IS NOT GENERALLY SUPPORTED, THIS IS ONLY INTENDED TO WORK
+GRPC_IMPL_CODEGEN_PORT_PLATFORM_H
 ```
 
 **Comentário IA:**
 ```
-NOTE: FORKING IS NOT GENERALLY SUPPORTED, THIS IS ONLY INTENDED TO WORK
+GRPC_IMPL_CODEGEN_PORT_PLATFORM_H
 ```
 
 **Métricas:**
@@ -24,17 +24,17 @@ NOTE: FORKING IS NOT GENERALLY SUPPORTED, THIS IS ONLY INTENDED TO WORK
 ---
 
 ## #2 - Score: 1.0000
-**Arquivo**: include\grpc\byte_buffer.h (linha 101)
+**Arquivo**: include\grpc++\impl\call.h (linha 28)
 **Linguagem**: cc
 
 **Comentário Humano:**
 ```
-GRPC_BYTE_BUFFER_H
+GRPCXX_IMPL_CALL_H
 ```
 
 **Comentário IA:**
 ```
-GRPC_BYTE_BUFFER_H
+GRPCXX_IMPL_CALL_H
 ```
 
 **Métricas:**
@@ -47,17 +47,17 @@ GRPC_BYTE_BUFFER_H
 ---
 
 ## #3 - Score: 1.0000
-**Arquivo**: include\grpc\impl\codegen\sync_abseil.h (linha 29)
+**Arquivo**: include\grpc++\impl\rpc_service_method.h (linha 28)
 **Linguagem**: cc
 
 **Comentário Humano:**
 ```
-GRPC_IMPL_CODEGEN_SYNC_ABSEIL_H
+GRPCXX_IMPL_RPC_SERVICE_METHOD_H
 ```
 
 **Comentário IA:**
 ```
-GRPC_IMPL_CODEGEN_SYNC_ABSEIL_H
+GRPCXX_IMPL_RPC_SERVICE_METHOD_H
 ```
 
 **Métricas:**
@@ -70,17 +70,17 @@ GRPC_IMPL_CODEGEN_SYNC_ABSEIL_H
 ---
 
 ## #4 - Score: 1.0000
-**Arquivo**: third_party\upb\upb\message\map_gencode_util.h (linha 16)
+**Arquivo**: include\grpc++\support\async_unary_call.h (linha 28)
 **Linguagem**: cc
 
 **Comentário Humano:**
 ```
-UPB_MESSAGE_MAP_GENCODE_UTIL_H_
+GRPCXX_SUPPORT_ASYNC_UNARY_CALL_H
 ```
 
 **Comentário IA:**
 ```
-UPB_MESSAGE_MAP_GENCODE_UTIL_H_
+GRPCXX_SUPPORT_ASYNC_UNARY_CALL_H
 ```
 
 **Métricas:**
@@ -93,98 +93,6 @@ UPB_MESSAGE_MAP_GENCODE_UTIL_H_
 ---
 
 ## #5 - Score: 1.0000
-**Arquivo**: include\grpc\support\log.h (linha 85)
-**Linguagem**: cc
-
-**Comentário Humano:**
-```
-GRPC_SUPPORT_LOG_H
-```
-
-**Comentário IA:**
-```
-GRPC_SUPPORT_LOG_H
-```
-
-**Métricas:**
-- Similaridade: 1.000
-- Razão Tamanho: 1.000
-- Legibilidade: 1.000
-- BLEU: 1.000
-- ROUGE: 1.000
-
----
-
-## #6 - Score: 1.0000
-**Arquivo**: examples\cpp\auth\helper.h (linha 26)
-**Linguagem**: cc
-
-**Comentário Humano:**
-```
-GRPC_EXAMPLES_CPP_AUTH_HELPER_H_
-```
-
-**Comentário IA:**
-```
-GRPC_EXAMPLES_CPP_AUTH_HELPER_H_
-```
-
-**Métricas:**
-- Similaridade: 1.000
-- Razão Tamanho: 1.000
-- Legibilidade: 1.000
-- BLEU: 1.000
-- ROUGE: 1.000
-
----
-
-## #7 - Score: 1.0000
-**Arquivo**: src\core\credentials\transport\alts\alts_credentials.cc (linha 32)
-**Linguagem**: cc
-
-**Comentário Humano:**
-```
-/metadata.google.internal.:8080"
-```
-
-**Comentário IA:**
-```
-/metadata.google.internal.:8080"
-```
-
-**Métricas:**
-- Similaridade: 1.000
-- Razão Tamanho: 1.000
-- Legibilidade: 1.000
-- BLEU: 1.000
-- ROUGE: 1.000
-
----
-
-## #8 - Score: 1.0000
-**Arquivo**: src\php\ext\grpc\call_credentials.h (linha 62)
-**Linguagem**: cc
-
-**Comentário Humano:**
-```
-NET_GRPC_PHP_GRPC_CALL_CREDENTIALS_H_
-```
-
-**Comentário IA:**
-```
-NET_GRPC_PHP_GRPC_CALL_CREDENTIALS_H_
-```
-
-**Métricas:**
-- Similaridade: 1.000
-- Razão Tamanho: 1.000
-- Legibilidade: 1.000
-- BLEU: 1.000
-- ROUGE: 1.000
-
----
-
-## #9 - Score: 1.0000
 **Arquivo**: src\compiler\node_generator_helpers.h (linha 42)
 **Linguagem**: cc
 
@@ -207,18 +115,110 @@ GRPC_INTERNAL_COMPILER_NODE_GENERATOR_HELPERS_H
 
 ---
 
-## #10 - Score: 1.0000
-**Arquivo**: src\core\lib\debug\trace.h (linha 21)
+## #6 - Score: 1.0000
+**Arquivo**: include\grpc\impl\codegen\sync_custom.h (linha 29)
 **Linguagem**: cc
 
 **Comentário Humano:**
 ```
-GRPC_SRC_CORE_LIB_DEBUG_TRACE_H
+GRPC_IMPL_CODEGEN_SYNC_CUSTOM_H
 ```
 
 **Comentário IA:**
 ```
-GRPC_SRC_CORE_LIB_DEBUG_TRACE_H
+GRPC_IMPL_CODEGEN_SYNC_CUSTOM_H
+```
+
+**Métricas:**
+- Similaridade: 1.000
+- Razão Tamanho: 1.000
+- Legibilidade: 1.000
+- BLEU: 1.000
+- ROUGE: 1.000
+
+---
+
+## #7 - Score: 1.0000
+**Arquivo**: include\grpc++\security\credentials.h (linha 28)
+**Linguagem**: cc
+
+**Comentário Humano:**
+```
+GRPCXX_SECURITY_CREDENTIALS_H
+```
+
+**Comentário IA:**
+```
+GRPCXX_SECURITY_CREDENTIALS_H
+```
+
+**Métricas:**
+- Similaridade: 1.000
+- Razão Tamanho: 1.000
+- Legibilidade: 1.000
+- BLEU: 1.000
+- ROUGE: 1.000
+
+---
+
+## #8 - Score: 1.0000
+**Arquivo**: include\grpc\support\log.h (linha 85)
+**Linguagem**: cc
+
+**Comentário Humano:**
+```
+GRPC_SUPPORT_LOG_H
+```
+
+**Comentário IA:**
+```
+GRPC_SUPPORT_LOG_H
+```
+
+**Métricas:**
+- Similaridade: 1.000
+- Razão Tamanho: 1.000
+- Legibilidade: 1.000
+- BLEU: 1.000
+- ROUGE: 1.000
+
+---
+
+## #9 - Score: 1.0000
+**Arquivo**: include\grpc\compression.h (linha 73)
+**Linguagem**: cc
+
+**Comentário Humano:**
+```
+GRPC_COMPRESSION_H
+```
+
+**Comentário IA:**
+```
+GRPC_COMPRESSION_H
+```
+
+**Métricas:**
+- Similaridade: 1.000
+- Razão Tamanho: 1.000
+- Legibilidade: 1.000
+- BLEU: 1.000
+- ROUGE: 1.000
+
+---
+
+## #10 - Score: 1.0000
+**Arquivo**: third_party\upb\upb\message\map_gencode_util.h (linha 16)
+**Linguagem**: cc
+
+**Comentário Humano:**
+```
+UPB_MESSAGE_MAP_GENCODE_UTIL_H_
+```
+
+**Comentário IA:**
+```
+UPB_MESSAGE_MAP_GENCODE_UTIL_H_
 ```
 
 **Métricas:**

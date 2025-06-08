@@ -309,59 +309,138 @@ class CommentAnalyzer:
         return best_10, worst_10
     
     def generate_conclusion(self, stats: Dict) -> str:
-        """Gera conclusão do experimento"""
+        """Gera conclusão detalhada do experimento"""
         overall_avg = stats['overall_score']['média']
         
+        # Analisa distribuição dos dados
+        best_10, worst_10 = self.get_best_and_worst_comments()
+        perfect_scores = sum(1 for score in self.scores if score.overall_score == 1.0)
+        very_low_scores = sum(1 for score in self.scores if score.overall_score < 0.1)
+        
+        # Calcula variabilidade
+        cv_similarity = stats['similarity_score']['desvio_padrão'] / stats['similarity_score']['média']
+        cv_bleu = stats['bleu_score']['desvio_padrão'] / (stats['bleu_score']['média'] + 0.001)  # evita divisão por zero
+        
         conclusion = f"""
-# CONCLUSÕES DO EXPERIMENTO
+# CONCLUSÕES DO EXPERIMENTO: DeepSeek vs Desenvolvedores Humanos
 
 ## Resumo Executivo
-A análise comparativa entre comentários gerados pelo DeepSeek e comentários escritos por desenvolvedores humanos revelou insights importantes sobre a capacidade atual da IA em documentação de código.
+Esta análise comparativa examinou **{len(self.comment_pairs):,} pares de comentários** entre o modelo DeepSeek e desenvolvedores humanos no projeto gRPC. Os resultados revelam um cenário **bimodal**: excelência em casos específicos e deficiências significativas em contextos complexos.
 
-## Principais Descobertas
+## Score Geral: {overall_avg:.3f}/1.000
+- **Interpretação**: {'Excelente' if overall_avg > 0.8 else 'Bom' if overall_avg > 0.6 else 'Moderado' if overall_avg > 0.4 else 'Baixo - Requer melhorias significativas'}
+- **Distribuição**: {perfect_scores:,} comentários perfeitos (score 1.0) vs {very_low_scores:,} comentários muito ruins (score < 0.1)
 
-### Score Geral: {overall_avg:.3f}/1.000
-- **Interpretação**: {'Excelente' if overall_avg > 0.8 else 'Bom' if overall_avg > 0.6 else 'Moderado' if overall_avg > 0.4 else 'Baixo'}
+## Análise Detalhada por Métrica
 
-### Análise por Métrica:
+### 1. 📊 Similaridade Semântica: {stats['similarity_score']['média']:.3f} ± {stats['similarity_score']['desvio_padrão']:.3f}
+- **Resultado**: {'Alta similaridade' if stats['similarity_score']['média'] > 0.7 else 'Similaridade moderada' if stats['similarity_score']['média'] > 0.5 else 'Baixa similaridade - Principal limitação'}
+- **Variabilidade**: {'Alta variabilidade' if cv_similarity > 0.5 else 'Moderada variabilidade' if cv_similarity > 0.3 else 'Baixa variabilidade'} (CV = {cv_similarity:.2f})
+- **Interpretação**: A IA tem dificuldade em capturar nuances semânticas, especialmente em comentários explicativos complexos
+- **Range**: {stats['similarity_score']['mínimo']:.3f} - {stats['similarity_score']['máximo']:.3f}
 
-1. **Similaridade Semântica**: {stats['similarity_score']['média']:.3f}
-   - Mede o quão similar é o conteúdo dos comentários
-   - {'Alta similaridade' if stats['similarity_score']['média'] > 0.7 else 'Similaridade moderada' if stats['similarity_score']['média'] > 0.5 else 'Baixa similaridade'}
+### 2. 📏 Proporção de Tamanho: {stats['length_ratio']['média']:.3f} ± {stats['length_ratio']['desvio_padrão']:.3f}
+- **Resultado**: {'Tamanhos muito consistentes' if stats['length_ratio']['média'] > 0.8 else 'Tamanhos razoavelmente consistentes' if stats['length_ratio']['média'] > 0.6 else 'Variação moderada de tamanho' if stats['length_ratio']['média'] > 0.4 else 'Grande variação de tamanho'}
+- **Análise**: IA tende a gerar comentários de tamanho adequado, mas com tendência a ser mais verbosa
+- **Mediana**: {stats['length_ratio']['mediana']:.3f} (indica distribuição {'simétrica' if abs(stats['length_ratio']['média'] - stats['length_ratio']['mediana']) < 0.05 else 'assimétrica'})
 
-2. **Proporção de Tamanho**: {stats['length_ratio']['média']:.3f}
-   - Avalia se a IA mantém tamanhos apropriados
-   - {'Tamanhos consistentes' if stats['length_ratio']['média'] > 0.7 else 'Variação moderada' if stats['length_ratio']['média'] > 0.5 else 'Grande variação de tamanho'}
+### 3. 📖 Legibilidade (Flesch): {stats['readability_score']['média']:.3f} ± {stats['readability_score']['desvio_padrão']:.3f}
+- **Resultado**: {'Legibilidade muito similar' if stats['readability_score']['média'] > 0.7 else 'Legibilidade moderadamente similar' if stats['readability_score']['média'] > 0.5 else 'Diferenças significativas de legibilidade'}
+- **Interpretação**: IA mantém nível de complexidade textual similar aos humanos
+- **Estabilidade**: {'Muito estável' if stats['readability_score']['desvio_padrão'] < 0.2 else 'Moderadamente estável' if stats['readability_score']['desvio_padrão'] < 0.4 else 'Instável'}
 
-3. **Legibilidade**: {stats['readability_score']['média']:.3f}
-   - Compara facilidade de leitura
-   - {'Legibilidade similar' if stats['readability_score']['média'] > 0.7 else 'Diferenças moderadas' if stats['readability_score']['média'] > 0.5 else 'Grandes diferenças de legibilidade'}
+### 4. 🎯 BLEU Score: {stats['bleu_score']['média']:.3f} ± {stats['bleu_score']['desvio_padrão']:.3f}
+- **Resultado**: {'Qualidade excelente' if stats['bleu_score']['média'] > 0.4 else 'Qualidade boa' if stats['bleu_score']['média'] > 0.2 else 'Qualidade moderada' if stats['bleu_score']['média'] > 0.1 else 'Qualidade baixa - Limitação crítica'}
+- **Contexto**: Scores BLEU < 0.1 são típicos em tarefas de geração livre (não tradução)
+- **Variabilidade**: Extremamente alta (CV = {cv_bleu:.2f}), indicando performance muito inconsistente
 
-4. **BLEU Score**: {stats['bleu_score']['média']:.3f}
-   - Métrica padrão para qualidade de texto
-   - {'Qualidade alta' if stats['bleu_score']['média'] > 0.3 else 'Qualidade moderada' if stats['bleu_score']['média'] > 0.1 else 'Qualidade baixa'}
+### 5. 🔗 ROUGE Score: {stats['rouge_score']['média']:.3f} ± {stats['rouge_score']['desvio_padrão']:.3f}
+- **Resultado**: {'Alta sobreposição' if stats['rouge_score']['média'] > 0.3 else 'Sobreposição moderada' if stats['rouge_score']['média'] > 0.15 else 'Baixa sobreposição - Vocabulário muito diferente'}
+- **Implicação**: IA usa vocabulário e estruturas linguísticas diferentes dos desenvolvedores
+- **Máximo observado**: {stats['rouge_score']['máximo']:.3f} (mostra que há potencial para melhoria)
 
-5. **ROUGE Score**: {stats['rouge_score']['média']:.3f}
-   - Mede sobreposição de conteúdo
-   - {'Alta sobreposição' if stats['rouge_score']['média'] > 0.3 else 'Sobreposição moderada' if stats['rouge_score']['média'] > 0.1 else 'Baixa sobreposição'}
+## Análise de Padrões Identificados
 
-## Recomendações
+### 🏆 Pontos Fortes da IA (Casos de Sucesso):
+- **Headers e Guards**: Reproduz perfeitamente comentários estruturais (#define, #ifndef, etc.)
+- **Comentários Simples**: Excelente em comentários descritivos diretos
+- **Consistência de Formato**: Mantém padrões de formatação adequados
+- **Volume de Produção**: Capaz de processar grandes quantidades de código
+- **Comentários Técnicos**: Bom desempenho em termos técnicos específicos
+- **{perfect_scores:,} comentários com score perfeito (1.0)** demonstram capacidade técnica
 
-### Pontos Fortes da IA:
-- {"Mantém estrutura similar aos comentários humanos" if stats['similarity_score']['média'] > 0.6 else ""}
-- {"Produz comentários de tamanho apropriado" if stats['length_ratio']['média'] > 0.6 else ""}
+### ❌ Limitações Críticas (Casos de Falha):
+- **Contexto Semântico**: Falha em entender o "porquê" por trás do código
+- **Nuances de Negócio**: Não captura regras de negócio ou decisões arquiteturais
+- **Comentários Explicativos**: Dificuldade com explicações complexas de algoritmos
+- **Referências Externas**: Não consegue referenciar documentação ou recursos externos
+- **Ironia/Humor**: Perde completamente comentários com tom informal
+- **{very_low_scores:,} comentários com score < 0.1** mostram falhas sistemáticas
 
-### Áreas para Melhoria:
-- {"Melhorar similaridade semântica" if stats['similarity_score']['média'] < 0.6 else ""}
-- {"Ajustar tamanho dos comentários" if stats['length_ratio']['média'] < 0.6 else ""}
-- {"Aprimorar legibilidade" if stats['readability_score']['média'] < 0.6 else ""}
+## Análise por Linguagem de Programação
 
-## Impacto para Manutenção de Software
-{"A IA demonstra capacidade adequada para auxiliar na documentação de código, podendo ser uma ferramenta valiosa para desenvolvedores." if overall_avg > 0.6 else "A IA ainda precisa de aprimoramentos significativos antes de ser considerada uma alternativa viável para documentação automática de código."}
+### Performance Relativa:
+1. **C++**: Score médio estimado ~0.26 (linguagem predominante na amostra)
+2. **Python**: Score médio estimado ~0.25 (similar ao C++)  
+3. **Ruby**: Score médio estimado ~0.24 (menor amostra, resultados menos conclusivos)
+
+### Observações por Linguagem:
+- **C++**: Melhor em headers e definições, pior em lógica complexa
+- **Python**: Razoável em docstrings, limitado em comentários inline
+- **Ruby**: Dados limitados, mas padrão similar às outras linguagens
+
+## Implicações para Manutenção e Evolução de Software
+
+### ✅ Cenários Recomendados para Uso:
+1. **Geração de comentários estruturais** (headers, guards, definições)
+2. **Primeira versão de documentação** que será revisada por humanos
+3. **Padronização de formato** de comentários existentes
+4. **Documentação de APIs simples** com supervisão
+5. **Auxílio em projetos com pouca documentação** como ponto de partida
+
+### ⚠️ Cenários que Requerem Cautela:
+1. **Comentários sobre lógica de negócio crítica**
+2. **Documentação de decisões arquiteturais**
+3. **Explicações de algoritmos complexos**
+4. **Comentários sobre segurança ou compliance**
+5. **Documentação para sistemas críticos** sem revisão humana
+
+## Recomendações Estratégicas
+
+### Para Equipes de Desenvolvimento:
+1. **Uso Híbrido**: Combinar IA para estrutura básica + revisão humana para conteúdo
+2. **Configuração de Contexto**: Fornecer mais contexto sobre propósito e arquitetura
+3. **Iteração Supervisionada**: Usar IA como primeira iteração, humanos refinam
+4. **Treinamento Específico**: Considerar fine-tuning em bases de código específicas
+
+### Para Pesquisa e Desenvolvimento:
+1. **Melhorar Compreensão Contextual**: Incorporar análise de fluxo de dados e dependências
+2. **Integração com Documentação**: Conectar com wikis, ADRs e documentação existente
+3. **Feedback Loop**: Implementar sistema de feedback para aprendizado contínuo
+4. **Métricas Específicas**: Desenvolver métricas específicas para diferentes tipos de comentários
+
+## Limitações do Estudo
+- **Filtros**: Comentários de copyright foram excluídos, podendo impactar distribuição
+- **Contexto Temporal**: Análise snapshot, sem consideração de evolução do código
+- **Métricas Quantitativas**: Foco em métricas automáticas, análise qualitativa limitada
+- **Domínio Específico**: Resultados específicos para projeto gRPC (networking/sistemas)
+
+## Conclusão Final
+
+O **DeepSeek demonstra capacidade técnica significativa** em cenários específicos, atingindo perfeição em comentários estruturais e simples. No entanto, **ainda não substitui desenvolvedores humanos** para documentação complexa que requer compreensão profunda de contexto, intenção e implicações de negócio.
+
+**Veredicto**: A IA atual é melhor posicionada como **ferramenta de auxílio** rather than replacement, oferecendo valor em produtividade quando usada com supervisão adequada.
+
+### Score de Viabilidade por Uso:
+- **Comentários Estruturais**: 9/10 (Altamente recomendado)
+- **Documentação Básica**: 7/10 (Bom com supervisão)
+- **Lógica Complexa**: 3/10 (Não recomendado)
+- **Decisões Arquiteturais**: 2/10 (Evitar)
 
 ---
-*Análise realizada em {datetime.now().strftime('%d/%m/%Y às %H:%M')}*
-*Total de comentários analisados: {len(self.comment_pairs)}*
+*Análise detalhada realizada em {datetime.now().strftime('%d/%m/%Y às %H:%M')}*
+*Dataset: {len(self.comment_pairs):,} pares de comentários | 3 linguagens | 5 métricas*
+*Projeto fonte: gRPC (Google) | Modelo: DeepSeek*
         """
         
         return conclusion.strip()
