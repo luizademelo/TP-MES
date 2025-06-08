@@ -1,0 +1,831 @@
+Matched 156 files with comments
+
+File: examples\ruby\errors_and_cancellation\error_examples_client.rb — Comment Pair #1
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\channel_state_test.rb — Comment Pair #2
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\without_protobuf\echo_services_noprotobuf.rb — Comment Pair #3
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\bin\math_services_pb.rb — Comment Pair #4
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\pubsub\pubsub_demo.rb — Comment Pair #5
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\status_codes_load_before_grpc_lib_test.rb — Comment Pair #6
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\stress\metrics_server.rb — Comment Pair #7
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\generic\rpc_desc_spec.rb — Comment Pair #8
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\error_sanity_spec.rb — Comment Pair #9
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\spec_helper.rb — Comment Pair #10
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\nativedebug\version.rb — Comment Pair #11
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\lib\route_guide_services_pb.rb — Comment Pair #12
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\pb\src\proto\grpc\testing\test_services_pb.rb — Comment Pair #13
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\pb\duplicate\codegen_spec.rb — Comment Pair #14
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\google_rpc_status_utils.rb — Comment Pair #15
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\client_auth_spec.rb — Comment Pair #16
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\generic\active_call_spec.rb — Comment Pair #17
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\client_memory_usage_client.rb — Comment Pair #18
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\sig_int_during_channel_watch_client.rb — Comment Pair #19
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\sig_int_during_channel_watch_test.rb — Comment Pair #20
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\version.rb — Comment Pair #21
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\support\services.rb — Comment Pair #22
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\package_with_underscore_test.rb — Comment Pair #23
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\stress\stress_client.rb — Comment Pair #24
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\compression_options_spec.rb — Comment Pair #25
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\src\proto\grpc\testing\benchmark_service_services_pb.rb — Comment Pair #26
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\channel_credentials_spec.rb — Comment Pair #27
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\generic\active_call.rb — Comment Pair #28
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\generic\interceptor_registry_spec.rb — Comment Pair #29
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\bin\math_client.rb — Comment Pair #30
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\pb\grpc\testing\duplicate\echo_duplicate_services_pb.rb — Comment Pair #31
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\nativedebug\platform.rb — Comment Pair #32
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\errors_spec.rb — Comment Pair #33
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\generic\interceptor_registry.rb — Comment Pair #34
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\fork_test_repro_35489.rb — Comment Pair #35
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\forking_client_client.rb — Comment Pair #36
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\pb\grpc\health\checker.rb — Comment Pair #37
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\structs.rb — Comment Pair #38
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: tools\distrib\rake_compiler_docker_image.rb — Comment Pair #39
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\pb\codegen\package_option_spec.rb — Comment Pair #40
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\bad_usage_fork_test.rb — Comment Pair #41
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\core\status_codes.rb — Comment Pair #42
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\pubsub\google\protobuf\empty.rb — Comment Pair #43
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\graceful_sig_stop_client.rb — Comment Pair #44
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\logconfig_spec.rb — Comment Pair #45
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\histogram.rb — Comment Pair #46
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\forking_client_test.rb — Comment Pair #47
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\generic\service.rb — Comment Pair #48
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\lib\helloworld_services_pb.rb — Comment Pair #49
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\channel_connection_spec.rb — Comment Pair #50
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\qps-common.rb — Comment Pair #51
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\greeter_server.rb — Comment Pair #52
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\call_credentials_timeout_test.rb — Comment Pair #53
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\call_credentials_timeout_test.rb — Comment Pair #54
+--------------------------------------------------
+🧠 Human:    //foo.test.google.fr/echo.EchoServer'
+🤖 AI:       //foo.test.google.fr/echo.EchoServer'
+--------------------------------------------------
+
+File: examples\ruby\greeter_client.rb — Comment Pair #55
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\proxy-worker.rb — Comment Pair #56
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\lib\echo_services_pb.rb — Comment Pair #57
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\pb\grpc\health\v1\health_services_pb.rb — Comment Pair #58
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: test\distrib\ruby\distribtest.rb — Comment Pair #59
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\killed_client_thread_client.rb — Comment Pair #60
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\sig_handling_test.rb — Comment Pair #61
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\errors.rb — Comment Pair #62
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\src\proto\grpc\testing\proxy-service_services_pb.rb — Comment Pair #63
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\pb\test\xds_client.rb — Comment Pair #64
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc.rb — Comment Pair #65
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\src\proto\grpc\testing\worker_service_services_pb.rb — Comment Pair #66
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\generic\rpc_server_spec.rb — Comment Pair #67
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\echo_server.rb — Comment Pair #68
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\load_grpc_with_gc_stress_test.rb — Comment Pair #69
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\pubsub\tech\pubsub\proto\pubsub.rb — Comment Pair #70
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\debug_message_spec.rb — Comment Pair #71
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\errors_and_cancellation\error_examples_server.rb — Comment Pair #72
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\pb\test\client.rb — Comment Pair #73
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\secure_fork_test.rb — Comment Pair #74
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\graceful_sig_stop_test.rb — Comment Pair #75
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\generic\server_interceptors_spec.rb — Comment Pair #76
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\time_consts_spec.rb — Comment Pair #77
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\generic\client_interceptors_spec.rb — Comment Pair #78
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\route_guide\route_guide_server.rb — Comment Pair #79
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\channel_spec.rb — Comment Pair #80
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\tools\version.rb — Comment Pair #81
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\without_protobuf\echo_client.rb — Comment Pair #82
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\killed_client_thread_test.rb — Comment Pair #83
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\bin\math_server.rb — Comment Pair #84
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\pb\grpc\testing\metrics_services_pb.rb — Comment Pair #85
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\without_protobuf\echo_server.rb — Comment Pair #86
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\notifier.rb — Comment Pair #87
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\channel_closing_test.rb — Comment Pair #88
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\graceful_sig_handling_test.rb — Comment Pair #89
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\channel_state_client.rb — Comment Pair #90
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\multiple_killed_watching_threads_test.rb — Comment Pair #91
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\call_credentials_spec.rb — Comment Pair #92
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\bin\noproto_client.rb — Comment Pair #93
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\server_spec.rb — Comment Pair #94
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\fork_test.rb — Comment Pair #95
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\generic\rpc_desc.rb — Comment Pair #96
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\src\proto\grpc\testing\report_qps_scenario_service_services_pb.rb — Comment Pair #97
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\client_memory_usage_test.rb — Comment Pair #98
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\generic\interceptors.rb — Comment Pair #99
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\prefork_without_using_grpc_test.rb — Comment Pair #100
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\sanity_check_dlopen.rb — Comment Pair #101
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\call_spec.rb — Comment Pair #102
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\lib\client_control_services_pb.rb — Comment Pair #103
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\generic\rpc_server.rb — Comment Pair #104
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\user_agent_spec.rb — Comment Pair #105
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\route_guide\route_guide_client.rb — Comment Pair #106
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\grpc_class_init_test.rb — Comment Pair #107
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\bin\noproto_server.rb — Comment Pair #108
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\generic\client_stub_spec.rb — Comment Pair #109
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\google_rpc_status_utils_spec.rb — Comment Pair #110
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\channel_closing_client.rb — Comment Pair #111
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\sig_handling_client.rb — Comment Pair #112
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\generic\client_stub.rb — Comment Pair #113
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\server.rb — Comment Pair #114
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\support\helpers.rb — Comment Pair #115
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\call_credentials_returning_bad_metadata_doesnt_kill_background_thread_test.rb — Comment Pair #116
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\client.rb — Comment Pair #117
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\pb\health\checker_spec.rb — Comment Pair #118
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\client_server_spec.rb — Comment Pair #119
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\tools\platform_check.rb — Comment Pair #120
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\end2end_common.rb — Comment Pair #121
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\grpc_class_init_client.rb — Comment Pair #122
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\errors_load_before_grpc_lib_test.rb — Comment Pair #123
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\prefork_postfork_loop_test.rb — Comment Pair #124
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\core\time_consts.rb — Comment Pair #125
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\ext\grpc\extconf.rb — Comment Pair #126
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\generic\bidi_call.rb — Comment Pair #127
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\simple_fork_test.rb — Comment Pair #128
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\qps\worker.rb — Comment Pair #129
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\logconfig.rb — Comment Pair #130
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\logger_load_before_grpc_lib_test.rb — Comment Pair #131
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\pb\test\server.rb — Comment Pair #132
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\generic\rpc_server_pool_spec.rb — Comment Pair #133
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\end2end\graceful_sig_handling_client.rb — Comment Pair #134
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\lib\grpc\grpc.rb — Comment Pair #135
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\generic\service_spec.rb — Comment Pair #136
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: src\ruby\spec\server_credentials_spec.rb — Comment Pair #137
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+File: examples\ruby\pubsub\tech\pubsub\proto\pubsub_services.rb — Comment Pair #138
+--------------------------------------------------
+🧠 Human:    //www.apache.org/licenses/LICENSE-2.0
+🤖 AI:       //www.apache.org/licenses/LICENSE-2.0
+--------------------------------------------------
+
+✅ Displayed 138 comment pairs.
