@@ -1,0 +1,44 @@
+{
+  "similarity_score": {
+    "média": 0.2684308214156772,
+    "mediana": 0.25,
+    "desvio_padrão": 0.155702017203355,
+    "mínimo": 0.0,
+    "máximo": 1.0
+  },
+  "length_ratio": {
+    "média": 0.583497075049485,
+    "mediana": 0.581081081081081,
+    "desvio_padrão": 0.25860351772085644,
+    "mínimo": 0.0019451590638137667,
+    "máximo": 1.0
+  },
+  "readability_score": {
+    "média": 0.5283969733968251,
+    "mediana": 0.5674000000000001,
+    "desvio_padrão": 0.3347453706176707,
+    "mínimo": 0,
+    "máximo": 1.0
+  },
+  "bleu_score": {
+    "média": 0.02741824882698062,
+    "mediana": 0,
+    "desvio_padrão": 0.1396192041200033,
+    "mínimo": 0,
+    "máximo": 1.0
+  },
+  "rouge_score": {
+    "média": 0.08686412949816885,
+    "mediana": 0.0,
+    "desvio_padrão": 0.17918796509605894,
+    "mínimo": 0.0,
+    "máximo": 1.0
+  },
+  "overall_score": {
+    "média": 0.25811920072724476,
+    "mediana": 0.2402815951972556,
+    "desvio_padrão": 0.14465279733452238,
+    "mínimo": 0.0009678100636523413,
+    "máximo": 1.0
+  }
+}
